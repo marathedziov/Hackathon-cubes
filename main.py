@@ -3,6 +3,7 @@ from data import db_session
 from data.users import User
 from forms.user import RegisterForm, LoginForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from gen_equations import gen_lvl3
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "hackaton_cubes"
@@ -59,6 +60,21 @@ def login():
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
 
+
+@app.route('/', methods=['GET', 'POST'])
+def level_flowers():
+    global ans
+    res = 'НЕ ПРАВИЛЬНО'
+    if request.method == 'POST':
+        res_x = request.form['ans_x']
+        res_y = request.form['ans_y']
+        print((int(res_x), int(res_y)), ans)
+        if (int(res_x), int(res_y)) == ans:
+            res = "ПРАВИЛЬНО"
+        return render_template('level_flower_res.html', res=res)
+    equations, answ = gen_lvl3()
+    ans = answ
+    return render_template('level_flowers.html', equations=equations)
 
 
 if __name__ == "__main__":
