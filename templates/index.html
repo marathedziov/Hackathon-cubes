@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <button class="button module1"></button>
-        <button class="button task1_1"></button>
-        <button class="button task2_1"></button>
-        <button class="button task3_1"></button>
-        <button class="button task4_1"></button>
-    <button class="button module2"></button>
-        <button class="button task1_2"></button>
-        <button class="button task2_2"></button>
-        <button class="button task3_2"></button>
-        <button class="button task4_2"></button>
-    <button class="button module3"></button>
-        <button class="button task1_3"></button>
-        <button class="button task2_3"></button>
-        <button class="button task3_3"></button>
-        <button class="button task4_3"></button>
+    <button class="button module1" style="background-image: url('static/img/{{ 'module_passed_1_1.png' if module1_flag else 'module_not_passed_1_1.png' }}');"></button>
+        <button class="button task1_1" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task1_1_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task2_1" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task2_1_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task3_1" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task3_1_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task4_1" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task4_1_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+
+    <button class="button module2" style="background-image: url('static/img/{{ 'module_passed_1_2.png' if module2_flag else 'module_not_passed_1_2.png' }}');"></button>
+        <button class="button task1_2" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task1_2_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task2_2" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task2_2_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task3_2" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task3_2_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task4_2" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task4_2_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+
+    <button class="button module3" style="background-image: url('static/img/{{ 'module_passed_1_3.png' if module3_flag else 'module_not_passed_1_3.png' }}');"></button>
+        <button class="button task1_3" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task1_3_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task2_3" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task2_3_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task3_3" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task3_3_flag else 'task_not_passed_1_1_1.png' }}');"></button>
+        <button class="button task4_3" style="background-image: url('static/img/{{ 'task_passed_1_1_1.png' if task4_3_flag else 'task_not_passed_1_1_1.png' }}');"></button>
 </body>
 </html>
 <style>
@@ -85,10 +87,10 @@
         }
 
     .module2 {
-        width: 60px; /* Ширина кнопки */
-        height: 60px; /* Высота кнопки */
-        top: 443px; /* Позиция сверху */
-        left: 330px; /* Позиция слева */
+        width: 70px; /* Ширина кнопки */
+        height: 70px; /* Высота кнопки */
+        top: 437px; /* Позиция сверху */
+        left: 320px; /* Позиция слева */
         background-image: url('static/img/.png');
     }
 
@@ -122,10 +124,10 @@
         }
 
     .module3 {
-        width: 60px; /* Ширина кнопки */
-        height: 60px; /* Высота кнопки */
-        top: 245px; /* Позиция сверху */
-        left: 70px; /* Позиция слева */
+        width: 70px; /* Ширина кнопки */
+        height: 70px; /* Высота кнопки */
+        top: 240px; /* Позиция сверху */
+        left: 65px; /* Позиция слева */
         background-image: url('static/img/.png');
     }
 
