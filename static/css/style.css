@@ -1,0 +1,135 @@
+body {
+    background-image: url("/static/img/level1.png");
+    background-repeat: no-repeat;
+}
+
+.button {
+    border-radius: 50%; /* Закругление углов, чтобы получился круг */
+    border: 1px solid #000; /* Граница кнопки (опционально) */
+    color: white; /* Цвет текста кнопки */
+    font-size: 16px; /* Размер шрифта */
+    display: flex; /* Для центрирования содержимого */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    cursor: pointer; /* Курсор указателя при наведении */
+    text-decoration: none; /* Убрать подчеркивание текста (если это ссылка) */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 605px; /* Позиция сверху */
+    left: 125px; /* Позиция слева */
+    background-size: cover;
+}
+
+.module1 {
+    width: 60px; /* Ширина кнопки */
+    height: 60px; /* Высота кнопки */
+    top: 605px; /* Позиция сверху */
+    left: 125px; /* Позиция слева */
+    background-image: url('static/img/.png');
+}
+
+    .task1_1{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 568px; /* Позиция сверху */
+        left: 155px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task2_1{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 543px; /* Позиция сверху */
+        left: 195px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task3_1{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 525px; /* Позиция сверху */
+        left: 240px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task4_1{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 494px; /* Позиция сверху */
+        left: 282px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+
+.module2 {
+    width: 70px; /* Ширина кнопки */
+    height: 70px; /* Высота кнопки */
+    top: 437px; /* Позиция сверху */
+    left: 320px; /* Позиция слева */
+    background-image: url('static/img/.png');
+}
+
+    .task1_2{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 290px; /* Позиция сверху */
+        left: 145px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task2_2{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 310px; /* Позиция сверху */
+        left: 210px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task3_2{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 330px; /* Позиция сверху */
+        left: 280px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task4_2{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 380px; /* Позиция сверху */
+        left: 340px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+
+.module3 {
+    width: 70px; /* Ширина кнопки */
+    height: 70px; /* Высота кнопки */
+    top: 240px; /* Позиция сверху */
+    left: 65px; /* Позиция слева */
+    background-image: url('static/img/.png');
+}
+
+    .task1_3{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 198px; /* Позиция сверху */
+        left: 95px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task2_3{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 145px; /* Позиция сверху */
+        left: 130px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task3_3{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 105px; /* Позиция сверху */
+        left: 175px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+    .task4_3{
+        width: 30px; /* Ширина кнопки */
+        height: 30px; /* Высота кнопки */
+        top: 62px; /* Позиция сверху */
+        left: 245px; /* Позиция слева */
+        background-image: url('static/img/.png');
+    }
+
+.button:hover {
+    background-color: #0056b3; /* Изменение цвета фона при наведении (опционально) */
+}
