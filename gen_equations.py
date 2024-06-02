@@ -1,0 +1,134 @@
+from random import randint, choice, shuffle
+
+
+def fk(typ, koef):
+    if typ == 1:
+        if koef == -1:
+            return '-'
+        elif koef == 1:
+            return ''
+        else:
+            return str(koef)
+    elif typ == 2:
+        if koef < 0:
+            return f'- {abs(koef)}'
+        elif koef >= 0:
+            return f'+ {koef}'
+
+
+def gen_lvl1(k=1, b=0):
+    if k != 1:
+        k = randint(-10, 10)
+        while k == 0 or k == 1:
+            k = randint(-10, 10)
+    x = randint(-10, 10)
+    if b:
+        b = randint(-10, 10)
+        while b == 0:
+            b = randint(-10, 10)
+    if b == 0:
+        return {
+            'k': k,
+            'c': k * x,
+            'x': x
+        }
+    return {
+        "k": k,
+        'b': b,
+        'c': x * k + b,
+        'x': x
+    }
+
+
+def gen_lvl2_module1():
+    x = randint(1, 10)
+    if choice([True, False]):
+        return f'x² - {x ** 2} = 0', (x, -x)
+    else:
+        g = randint(-(x ** 2), x ** 2)
+        while g == 0 or g == x ** 2:
+            g = randint(-(x ** 2), x ** 2)
+        r = [g, x ** 2 - g]
+        shuffle(r)
+        return f'x² {fk(2, r[0])} = {r[1]}', (x, -x)
+
+
+def gen_lvl2_module2(c=0):
+    if c:
+        x1, x2 = randint(-10, 10), randint(-10, 10)
+        while x1 == x2:
+            x1, x2 = randint(-10, 10), randint(-10, 10)
+    else:
+        x1, x2 = 0, randint(-10, 10)
+        while x1 == x2:
+            x2 = randint(-10, 10)
+
+    a = randint(-3, 3)
+    while a == 0:
+        a = randint(-3, 3)
+    b = -a * (x1 + x2)
+    c = a * (x1 * x2)
+
+    if c == 0:
+        return {
+            'a': a,
+            'b': b,
+            'x': (x1, x2)
+        }
+    return {
+        'a': a,
+        'b': b,
+        'c': c,
+        'x': (x1, x2)
+    }
+
+
+def gen_lvl2_module3():
+    x = randint(-10, 10)
+    b = -x
+    return {
+        'b': 2 * b,
+        'c': b ** 2,
+        'x': x
+    }
+
+
+def gen_lvl3():
+    x = randint(1, 10)
+    y = randint(1, 10)
+
+    a1, b1 = randint(2, 3), 1
+    c1 = a1 * x + y
+    a2, b2 = 1, randint(2, 3)
+    c2 = x + b2 * y
+    print(f"{a1}x + y = {c1}")
+    print(f"x + {b2}y = {c2}")
+    print(f"Корни: x = {x}, y = {y}")
+    lst = [
+        ['x.png'] * a1 + ['y.png'] * b1 + [c1],
+        ['x.png'] * a2 + ['y.png'] * b2 + [c2],
+           ]
+    return lst, (x, y)
+
+
+def gen_eq(typee):
+    if typee == 11:
+        koef = gen_lvl1(b=1)
+        return f'x {fk(2, koef["b"])} = {koef["c"]}', koef["x"]
+    elif typee == 12:
+        koef = gen_lvl1(k=0)
+        return f'{fk(1, koef["k"])}x = {koef["c"]}', koef["x"]
+    elif typee == 13:
+        koef = gen_lvl1(k=0, b=1)
+        return f'{fk(1, koef["k"])}x {fk(2, koef["b"])} = {koef["c"]}', koef["x"]
+    elif typee == 21:
+        return gen_lvl2_module1()
+    elif typee == 22:
+        koef = gen_lvl2_module2()
+        return f'{fk(1, koef["a"])}x² {fk(2, koef["b"])}x = 0', koef["x"]
+    elif typee == 23:
+        koef = gen_lvl2_module3()
+        return f'x² {fk(2, koef["b"])}x {fk(2, koef["c"])} = 0', koef["x"]
+    elif typee == 24:
+        koef = gen_lvl2_module2(c=1)
+        return f'{fk(1, koef["a"])}x² {fk(2, koef["b"])}x {fk(2, koef["c"])} = 0', koef["x"]
