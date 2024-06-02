@@ -1,0 +1,76 @@
+//{
+//    "level": "...",
+//    "num_lvl": 2,
+//    "background": "background_lvl_2.png",
+//    "modules": [
+//        {
+//            "name_module": "...",
+//            "num_module": 1,
+//            "img_not_passed": "module_not_passed_2_1.png",
+//            "img_passed": "module_passed_2_1.png",
+//            "tasks": [
+//                {
+//                    "num_task": 1,
+//                    "img_not_passed": "task_not_passed_2_1_1.png",
+//                    "img_passed": "task_passed_2_1_1.png"
+//                },
+//                {
+//                    "num_task": 2,
+//                    "img_not_passed": "task_not_passed_2_1_2.png",
+//                    "img_passed": "task_passed_2_1_2.png"
+//                },
+//                {
+//                    "num_task": 3,
+//                    "img_not_passed": "task_not_passed_2_1_3.png",
+//                    "img_passed": "task_passed_2_1_3.png"
+//                }
+//            ]
+//        },
+//        {
+//            "name_module": "...",
+//            "num_module": 2,
+//            "img_not_passed": "img_not_passed_2_2.png",
+//            "img_passed": "img_passed_2_2.png",
+//            "tasks": [
+//                {
+//                    "num_task": 1,
+//                    "img_not_passed": "task_not_passed_2_2_1.png",
+//                    "img_passed": "task_passed_2_2_1.png"
+//                },
+//                {
+//                    "num_task": 2,
+//                    "img_not_passed": "task_not_passed_2_2_2.png",
+//                    "img_passed": "task_passed_2_2_2.png"
+//                },
+//                {
+//                    "num_task": 3,
+//                    "img_not_passed": "task_not_passed_2_2_3.png",
+//                    "img_passed": "task_passed_2_2_3.png"
+//                }
+//            ]
+//        },
+//        {
+//            "name_module": "...",
+//            "num_module": 3,
+//            "img_not_passed": "img_not_passed_2_3.png",
+//            "img_passed": "img_passed_2_3.png",
+//            "tasks": [
+//                {
+//                    "num_task": 1,
+//                    "img_not_passed": "task_not_passed_2_3_1.png",
+//                    "img_passed": "task_passed_2_3_1.png"
+//                },
+//                {
+//                    "num_task": 2,
+//                    "img_not_passed": "task_not_passed_2_3_2.png",
+//                    "img_passed": "task_passed_2_3_2.png"
+//                },
+//                {
+//                    "num_task": 3,
+//                    "img_not_passed": "task_not_passed_2_3_3.png",
+//                    "img_passed": "task_passed_2_3_3.png"
+//                }
+//            ]
+//        }
+//    ]
+//}

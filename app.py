@@ -1,4 +1,19 @@
+import json
+
 from flask import Flask, render_template
+
+
+def data_json():
+    with open('level1.json', 'r') as f:
+        data = json.load(f)
+        lst_for_btn = []
+        for module in data['modules']:
+            lst_for_btn.append((module['sizes'], module['coordinates']))
+            for task in module['tasks']:
+                lst_for_btn.append((task['sizes'], task['coordinates']))
+        print(lst_for_btn)
+        return lst_for_btn
+
 
 app = Flask(__name__)
 
@@ -22,7 +37,8 @@ def index():
         'task3_3_flag': False,
         'task4_3_flag': False
     }
-    return render_template('index.html', **flags)
+    lst_for_btn = data_json()
+    return render_template('index.html', lst_for_btn=lst_for_btn, **flags)
 
 
 if __name__ == '__main__':
