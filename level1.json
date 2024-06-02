@@ -13,28 +13,28 @@
             "tasks": [
                 {
                     "num_task": 1,
-                    "img_not_passed": "task_not_passed_1_1_1.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_1_1.png",
                     "sizes": [30, 30],
                     "coordinates": [568, 155]
                 },
                 {
                     "num_task": 2,
-                    "img_not_passed": "task_not_passed_1_1_2.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_1_2.png",
                     "sizes": [30, 30],
                     "coordinates": [543, 195]
                 },
                 {
                     "num_task": 3,
-                    "img_not_passed": "task_not_passed_1_1_3.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_1_3.png",
                     "sizes": [30, 30],
                     "coordinates": [525, 240]
                 },
                 {
                     "num_task": 4,
-                    "img_not_passed": "task_not_passed_1_1_4.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_1_4.png",
                     "sizes": [30, 30],
                     "coordinates": [494, 282]
@@ -44,35 +44,35 @@
         {
             "name_module": "...",
             "num_module": 2,
-            "img_not_passed": "img_not_passed_1_2.png",
-            "img_passed": "img_passed_1_2.png",
+            "img_not_passed": "module_not_passed_1_2.png",
+            "img_passed": "module_passed_1_2.png",
             "sizes": [70, 70],
             "coordinates": [437, 320],
             "tasks": [
                 {
                     "num_task": 1,
-                    "img_not_passed": "task_not_passed_1_2_1.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_2_1.png",
                     "sizes": [30, 30],
                     "coordinates": [290, 145]
                 },
                 {
                     "num_task": 2,
-                    "img_not_passed": "task_not_passed_1_2_2.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_2_2.png",
                     "sizes": [30, 30],
                     "coordinates": [310, 210]
                 },
                 {
                     "num_task": 3,
-                    "img_not_passed": "task_not_passed_1_2_3.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_2_3.png",
                     "sizes": [30, 30],
                     "coordinates": [330, 280]
                 },
                 {
                     "num_task": 4,
-                    "img_not_passed": "task_not_passed_1_2_4.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_2_4.png",
                     "sizes": [30, 30],
                     "coordinates": [380, 340]
@@ -82,35 +82,35 @@
         {
             "name_module": "...",
             "num_module": 3,
-            "img_not_passed": "img_not_passed_1_3.png",
-            "img_passed": "img_passed_1_3.png",
+            "img_not_passed": "module_not_passed_1_3.png",
+            "img_passed": "module_passed_1_3.png",
             "sizes": [70, 70],
             "coordinates": [240, 65],
             "tasks": [
                 {
                     "num_task": 1,
-                    "img_not_passed": "task_not_passed_1_3_1.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_3_1.png",
                     "sizes": [30, 30],
                     "coordinates": [198, 95]
                 },
                 {
                     "num_task": 2,
-                    "img_not_passed": "task_not_passed_1_3_2.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_3_2.png",
                     "sizes": [30, 30],
                     "coordinates": [145, 130]
                 },
                 {
                     "num_task": 3,
-                    "img_not_passed": "task_not_passed_1_3_3.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_3_3.png",
                     "sizes": [30, 30],
                     "coordinates": [105, 175]
                 },
                 {
                     "num_task": 4,
-                    "img_not_passed": "task_not_passed_1_3_4.png",
+                    "img_not_passed": "trace.png",
                     "img_passed": "task_passed_1_3_4.png",
                     "sizes": [30, 30],
                     "coordinates": [62, 245]

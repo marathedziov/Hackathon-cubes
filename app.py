@@ -32,8 +32,6 @@ def index():
         'task4_3_flag': False
     }
     data_json = get_data_json()
-    print(data_json)
-    # print(data_json[])
     return render_template('index.html', data=data_json, **flags)
 
 

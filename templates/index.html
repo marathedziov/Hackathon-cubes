@@ -8,7 +8,7 @@
 </head>
 <body style='background-image: url("/static/img/background_lvl_1.png"); background-repeat: no-repeat;'>
     <button class="button module1" style="width: {{ data['modules'][0]['sizes'][0] }}px; height: {{ data['modules'][0]['sizes'][1] }}px; top: {{ data['modules'][0]['coordinates'][0] }}px; left: {{ data['modules'][0]['coordinates'][1] }}px;"></button>
-        <button class="button task1_1" style="width: {{ data['modules'][0]['tasks'][0]['sizes'][0] }}px; height: {{ data['modules'][0]['tasks'][0]['sizes'][1] }}px; top: data['modules'][0]['tasks'][0]['coordinates'][0] }}px; left: {{ data['modules'][0]['tasks'][0]['coordinates'][1] }}px;"></button>
+        <button class="button task1_1" style="width: {{ data['modules'][0]['tasks'][0]['sizes'][0] }}px; height: {{ data['modules'][0]['tasks'][0]['sizes'][1] }}px; top: {{ data['modules'][0]['tasks'][0]['coordinates'][0] }}px; left: {{ data['modules'][0]['tasks'][0]['coordinates'][1] }}px;"></button>
         <button class="button task2_1" style="width: {{ data['modules'][0]['tasks'][1]['sizes'][0] }}px; height: {{ data['modules'][0]['tasks'][1]['sizes'][1] }}px; top: {{ data['modules'][0]['tasks'][1]['coordinates'][0] }}px; left: {{ data['modules'][0]['tasks'][1]['coordinates'][1] }}px;"></button>
         <button class="button task3_1" style="width: {{ data['modules'][0]['tasks'][2]['sizes'][0] }}px; height: {{ data['modules'][0]['tasks'][2]['sizes'][1] }}px; top: {{ data['modules'][0]['tasks'][2]['coordinates'][0] }}px; left: {{ data['modules'][0]['tasks'][2]['coordinates'][1] }}px;"></button>
         <button class="button task4_1" style="width: {{ data['modules'][0]['tasks'][3]['sizes'][0] }}px; height: {{ data['modules'][0]['tasks'][3]['sizes'][1] }}px; top: {{ data['modules'][0]['tasks'][3]['coordinates'][0] }}px; left: {{ data['modules'][0]['tasks'][3]['coordinates'][1] }}px;"></button>
@@ -38,59 +38,57 @@
     cursor: pointer;
     text-decoration: none;
     position: absolute;
-    top: 605px;
-    left: 125px;
     background-size: cover;
 }
 
 .module1 {
-    background-image: url('static/img/{{ 'module_passed_1_1.png' if module1_flag else 'module_not_passed_1_1.png' }}');
+    background-image: url('static/img/{{ data['modules'][0]['img_passed'] if module1_flag else data['modules'][0]['img_not_passed'] }}');
 }
 
     .task1_1{
-        background-image: url('static/img/{{ 'trace.png' if not task1_1_flag else 'task_not_passed_1_1_1.png' }}');
+        background-image: url('static/img/{{ data["modules"][0]["tasks"][0]['img_passed'] if task1_1_flag else data["modules"][0]["tasks"][0]['img_not_passed'] }}');
     }
     .task2_1{
-        background-image: url('static/img/{{ 'trace.png' if not task2_1_flag else 'task_not_passed_1_1_2.png' }}');
+        background-image: url('static/img/{{ data["modules"][0]["tasks"][1]['img_passed'] if task2_1_flag else data["modules"][0]["tasks"][1]['img_not_passed'] }}');
     }
     .task3_1{
-        background-image: url('static/img/{{ 'trace.png' if not task3_1_flag else 'task_not_passed_1_1_3.png' }}');
+        background-image: url('static/img/{{ data["modules"][0]["tasks"][2]['img_passed'] if task3_1_flag else data["modules"][0]["tasks"][2]['img_not_passed'] }}');
     }
     .task4_1{
-        background-image: url('static/img/{{ 'trace.png' if not task4_1_flag else 'task_not_passed_1_1_4.png' }}');
+        background-image: url('static/img/{{ data["modules"][0]["tasks"][3]['img_passed'] if task4_1_flag else data["modules"][0]["tasks"][3]['img_not_passed'] }}');
     }
 
 .module2 {
-    background-image: url('static/img/{{ 'module_passed_1_2.png' if module2_flag else 'module_not_passed_1_2.png' }}');
+    background-image: url('static/img/{{ data["modules"][1]["img_passed"] if module2_flag else data["modules"][1]["img_not_passed"] }}');
 }
 
     .task1_2{
-        background-image: url('static/img/{{ 'trace.png' if not task1_2_flag else 'task_not_passed_1_2_1.png' }}');
+        background-image: url('static/img/{{ data["modules"][1]["tasks"][0]['img_passed'] if task1_2_flag else data["modules"][1]["tasks"][0]['img_not_passed'] }}');
     }
     .task2_2{
-        background-image: url('static/img/{{ 'trace.png' if not task2_2_flag else 'task_not_passed_1_2_2.png' }}');
+        background-image: url('static/img/{{ data["modules"][1]["tasks"][1]['img_passed'] if task2_2_flag else data["modules"][1]["tasks"][1]['img_not_passed'] }}');
     }
     .task3_2{
-        background-image: url('static/img/{{ 'trace.png' if not task3_2_flag else 'task_not_passed_1_2_3.png' }}');
+        background-image: url('static/img/{{ data["modules"][1]["tasks"][2]['img_passed'] if task3_2_flag else data["modules"][1]["tasks"][2]['img_not_passed'] }}');
     }
     .task4_2{
-        background-image: url('static/img/{{ 'trace.png' if not task4_2_flag else 'task_not_passed_1_2_4.png' }}');
+        background-image: url('static/img/{{ data["modules"][1]["tasks"][3]['img_passed'] if task4_2_flag else data["modules"][1]["tasks"][3]['img_not_passed'] }}');
     }
 
 .module3 {
-    background-image: url('static/img/{{ 'module_passed_1_3.png' if module3_flag else 'module_not_passed_1_3.png' }}');
+    background-image: url('static/img/{{ data["modules"][2]["img_passed"] if module3_flag else data["modules"][2]["img_not_passed"] }}');
 }
 
     .task1_3{
-        background-image: url('static/img/{{ 'trace.png' if not task1_3_flag else 'task_not_passed_1_3_1.png' }}');
+        background-image: url('static/img/{{ data["modules"][2]["tasks"][0]['img_passed'] if task1_3_flag else data["modules"][2]["tasks"][0]['img_not_passed'] }}');
     }
     .task2_3{
-        background-image: url('static/img/{{ 'trace.png' if not task2_3_flag else 'task_not_passed_1_3_2.png' }}');
+        background-image: url('static/img/{{ data["modules"][2]["tasks"][1]['img_passed'] if task2_3_flag else data["modules"][2]["tasks"][1]['img_not_passed'] }}');
     }
     .task3_3{
-        background-image: url('static/img/{{ 'trace.png' if not task3_3_flag else 'task_not_passed_1_3_3.png' }}');
+        background-image: url('static/img/{{ data["modules"][2]["tasks"][2]['img_passed'] if task3_3_flag else data["modules"][2]["tasks"][2]['img_not_passed'] }}');
     }
     .task4_3{
-        background-image: url('static/img/{{ 'trace.png' if not task4_3_flag else 'task_not_passed_1_3_4.png' }}');
+        background-image: url('static/img/{{ data["modules"][2]["tasks"][3]['img_passed'] if task4_3_flag else data["modules"][2]["tasks"][3]['img_not_passed'] }}');
     }
 </style>
