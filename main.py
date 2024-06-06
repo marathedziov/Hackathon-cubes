@@ -36,7 +36,7 @@ def register():
                                    form=form,
                                    message="Такой пользователь уже есть")
         user = User(
-            name=form.username.data,
+            username=form.username.data,
             email=form.email.data
         )
         user.set_password(form.password.data)
