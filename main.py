@@ -1,9 +1,10 @@
 from flask import Flask, render_template, redirect, abort, request
 from data import db_session
+from data.level_module_task import Progress
 from data.users import User
 from forms.user import RegisterForm, LoginForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from gen_equations import gen_lvl3
+from gen_equations import gen_lvl3, gen_eq
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "hackaton_cubes"
@@ -76,6 +77,36 @@ def level_flowers():
         equations, answ = gen_lvl3()
         ans = answ
         return render_template('level_flovers.html', equations=equations)
+
+
+def solving_eq(eq):
+    if request.method == 'POST':
+        ans = request.form.get('ans')
+        result = request.form.get('result')
+        if result == ans:
+            return render_template('level_flower_res.html', res="ПРАВИЛЬНО")
+        return render_template('level_flower_res.html', res="НЕПРАВИЛЬНО")
+    else:
+        return render_template('solving_eq.html', eq=eq)
+
+
+@app.route('/solv/<int:lvl><int:module><int:task>', methods=['GET', 'POST'])
+def genering(lvl, module, task):
+    equat = gen_eq(int(f'{lvl}{module}'))
+    db_sess = db_session.create_session()
+    eqs = db_sess.query(Progress).filter(Progress.id == (lvl - 1) * 12 * (module - 1) * 4 + (task)).first()
+    if eqs:
+        solving_eq((eqs.text_task, eqs.answer))
+    else:
+        progress = Progress()
+        progress.user_id = current_user
+        progress.level_id = lvl
+        progress.module_id = module
+        progress.text_task = equat[0]
+        progress.answer = equat[1]
+        db_sess.add(progress)
+        db_sess.commit()
+        solving_eq(equat)
 
 
 if __name__ == "__main__":
