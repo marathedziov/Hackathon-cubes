@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body style='background-image: url("/static/img/{{ data["background"] }}"); background-repeat: no-repeat;'>
+    {% for module in data['modules'] %}
+        <button class="button module" style="top: {{ module['coordinates'][0] }}px; left: {{ module['coordinates'][1] }}px; background-image: url('static/img/{{ module['img_not_passed'] }}"></button>
+        {% for task in module['tasks'] %}
+            <button class="button task" style="top: {{ task['coordinates'][0] }}px; left: {{ task['coordinates'][1] }}px; background-image: url('static/img/{{ dict_progress_buttons['model1'][loop.index0 % 4] }}.png');"></button>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

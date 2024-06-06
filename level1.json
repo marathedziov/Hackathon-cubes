@@ -1,0 +1,118 @@
+{
+    "name_level": "...",
+    "num_lvl": 1,
+    "background": "background_lvl_1.png",
+    "modules": [
+        {
+            "name_module": "...",
+            "num_module": 1,
+            "img_not_passed": "module_not_passed_1_1.png",
+            "img_passed": "module_passed_1_1.png",
+            "coordinates": [605, 125],
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [568, 155]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [543, 195]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [525, 240]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [494, 282]
+                }
+            ]
+        },
+        {
+            "name_module": "...",
+            "num_module": 2,
+            "img_not_passed": "module_not_passed_1_2.png",
+            "img_passed": "module_passed_1_2.png",
+            "coordinates": [437, 320],
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [290, 145]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [310, 210]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [330, 280]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [380, 340]
+                }
+            ]
+        },
+        {
+            "name_module": "...",
+            "num_module": 3,
+            "img_not_passed": "module_not_passed_1_3.png",
+            "img_passed": "module_passed_1_3.png",
+            "coordinates": [240, 65],
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [198, 95]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [145, 130]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [105, 175]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [62, 245]
+                }
+            ]
+        }
+    ]
+}

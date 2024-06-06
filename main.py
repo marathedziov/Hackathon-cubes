@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, render_template, redirect, abort, request
 from data import db_session
 from data.level_module_task import Progress
@@ -10,6 +12,12 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "hackaton_cubes"
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+
+def get_data_json():
+    with open('/level1.json', 'r') as f:
+        data = json.load(f)
+        return data
 
 
 @login_manager.user_loader
@@ -113,6 +121,15 @@ def solving_eq(lvl, module, task):
                                             Progress.module_id == module,
                                             Progress.task_id == task).first()
         return render_template('solving_eq.html', eq=(eq.text_task, eq.answer))
+
+
+@login_required
+@app.route('/show_level')
+def show_level():
+    dict_progress_buttons = {"model1": ["completed", "unblocked", "unblocked", "blocked"],
+                             "model2": ["blocked", "blocked", "completed", "unblocked"],
+                             "model3": ["completed", "completed", "blocked", "blocked"]}
+    return render_template('level.html', data=get_data_json(), dict_progress_buttons=dict_progress_buttons)
 
 
 if __name__ == "__main__":
