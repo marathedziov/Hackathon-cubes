@@ -61,7 +61,7 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/the_graphical_equation', methods=['GET', 'POST'])
 def level_flowers():
     global ans
     res = 'НЕ ПРАВИЛЬНО'
@@ -72,9 +72,10 @@ def level_flowers():
         if (int(res_x), int(res_y)) == ans:
             res = "ПРАВИЛЬНО"
         return render_template('level_flower_res.html', res=res)
-    equations, answ = gen_lvl3()
-    ans = answ
-    return render_template('level_flowers.html', equations=equations)
+    else:
+        equations, answ = gen_lvl3()
+        ans = answ
+        return render_template('level_flovers.html', equations=equations)
 
 
 if __name__ == "__main__":
