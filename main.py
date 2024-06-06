@@ -15,7 +15,7 @@ login_manager.init_app(app)
 
 
 def get_data_json():
-    with open('/level1.json', 'r') as f:
+    with open('levels/level1.json', 'r') as f:
         data = json.load(f)
         return data
 
