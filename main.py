@@ -4,7 +4,7 @@ from data.level_module_task import Progress
 from data.users import User
 from forms.user import RegisterForm, LoginForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from gen_equations import gen_lvl3, gen_eq
+from gen_equations import gen_lvl3, add_into_db
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "hackaton_cubes"
@@ -20,7 +20,25 @@ def load_user(user_id):
 
 @app.route("/")
 def index():
-    return render_template("base.html")
+    return render_template("index.html")
+
+
+@login_required
+@app.route("/story")
+def story():
+    return render_template("story.html")
+
+
+@login_required
+@app.route("/user_profile")
+def user_profile():
+    return render_template("user_profile.html")
+
+
+@login_required
+@app.route("/map")
+def map():
+    return render_template("map.html")
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -43,7 +61,8 @@ def register():
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
-        return redirect('/')
+        login_user(user)
+        return redirect('/story')
     return render_template('register.html', title='Регистрация', form=form)
 
 
@@ -55,7 +74,7 @@ def login():
         user = db_sess.query(User).filter(User.email == form.email.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect("/")
+            return redirect("/story")
         return render_template('login.html',
                                message="Неправильный логин или пароль",
                                form=form)
@@ -79,7 +98,8 @@ def level_flowers():
         return render_template('level_flovers.html', equations=equations)
 
 
-def solving_eq(eq):
+@app.route('/solv/<int:lvl><int:module><int:task>', methods=['GET', 'POST'])
+def solving_eq(lvl, module, task):
     if request.method == 'POST':
         ans = request.form.get('ans')
         result = request.form.get('result')
@@ -87,28 +107,14 @@ def solving_eq(eq):
             return render_template('level_flower_res.html', res="ПРАВИЛЬНО")
         return render_template('level_flower_res.html', res="НЕПРАВИЛЬНО")
     else:
-        return render_template('solving_eq.html', eq=eq)
-
-
-@app.route('/solv/<int:lvl><int:module><int:task>', methods=['GET', 'POST'])
-def genering(lvl, module, task):
-    equat = gen_eq(int(f'{lvl}{module}'))
-    db_sess = db_session.create_session()
-    eqs = db_sess.query(Progress).filter(Progress.id == (lvl - 1) * 12 * (module - 1) * 4 + (task)).first()
-    if eqs:
-        solving_eq((eqs.text_task, eqs.answer))
-    else:
-        progress = Progress()
-        progress.user_id = current_user
-        progress.level_id = lvl
-        progress.module_id = module
-        progress.text_task = equat[0]
-        progress.answer = equat[1]
-        db_sess.add(progress)
-        db_sess.commit()
-        solving_eq(equat)
+        add_into_db(lvl, module, task, current_user)
+        db_sess = db_session.create_session()
+        eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
+                                            Progress.module_id == module,
+                                            Progress.task_id == task).first()
+        return render_template('solving_eq.html', eq=(eq.text_task, eq.answer))
 
 
 if __name__ == "__main__":
-    db_session.global_init("db/hackathon")
+    db_session.global_init("db/hackathon.db")
     app.run(debug=True)

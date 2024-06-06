@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <body>
+  <form method="post">
+  <div align="center" style="width: 80wh">
+    <div style="margin-top: 5vh">
+        <h1>{{eq[0]}}</h1>
+    </div>
+    <div style="margin-top: 5vh">
+        <a class="btn btn-primary" href="#" role="button">Черновик</a>
+    </div>
+    <div style="margin-top: 5vh">
+        <input type="text" name="ans" placeholder="Введите ответ"/>
+    </div>
+    <div style="margin-top: 2vh">
+        <button class="btn btn-primary" type="submit" value={{eq[1]}} name="result">Ответить</button>
+    </div>
+  </div>
+  </form>
+  </body>
+{% endblock %}

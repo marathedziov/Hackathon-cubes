@@ -1,5 +1,8 @@
 from random import randint, choice, shuffle
 
+from data import db_session
+from data.level_module_task import Progress
+
 
 def fk(typ, koef):
     if typ == 1:
@@ -107,7 +110,7 @@ def gen_lvl3():
     lst = [
         ['x.png'] * a1 + ['y.png'] * b1 + [c1],
         ['x.png'] * a2 + ['y.png'] * b2 + [c2],
-           ]
+    ]
     return lst, (x, y)
 
 
@@ -132,3 +135,21 @@ def gen_eq(typee):
     elif typee == 24:
         koef = gen_lvl2_module2(c=1)
         return f'{fk(1, koef["a"])}x² {fk(2, koef["b"])}x {fk(2, koef["c"])} = 0', koef["x"]
+
+
+def add_into_db(lvl, module, task, current_user):
+    equat = gen_eq(int(f'{lvl}{module}'))
+    db_sess = db_session.create_session()
+    eqs = db_sess.query(Progress).filter(Progress.level_id == lvl,
+                                         Progress.module_id == module,
+                                         Progress.task_id == task).first()
+    if not eqs:
+        progress = Progress()
+        progress.user_id = 1
+        progress.level_id = lvl
+        progress.module_id = module
+        progress.task_id = task
+        progress.text_task = equat[0]
+        progress.answer = equat[1]
+        db_sess.add(progress)
+        db_sess.commit()
