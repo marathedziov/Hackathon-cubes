@@ -13,26 +13,11 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index():
-    flags = {
-        'module1_flag': False,
-        'task1_1_flag': False,
-        'task2_1_flag': False,
-        'task3_1_flag': False,
-        'task4_1_flag': False,
-        'module2_flag': False,
-        'task1_2_flag': False,
-        'task2_2_flag': False,
-        'task3_2_flag': False,
-        'task4_2_flag': False,
-        'module3_flag': False,
-        'task1_3_flag': False,
-        'task2_3_flag': False,
-        'task3_3_flag': False,
-        'task4_3_flag': False
-    }
-    data_json = get_data_json()
-    return render_template('index.html', data=data_json, **flags)
+def show_level():
+    dict_progress_buttons = {"model1": ["completed", "unblocked", "unblocked", "blocked"],
+                             "model2": ["blocked", "blocked", "completed", "unblocked"],
+                             "model3": ["completed", "completed", "blocked", "blocked"]}
+    return render_template('level.html', data=get_data_json(), dict_progress_buttons=dict_progress_buttons)
 
 
 if __name__ == '__main__':
