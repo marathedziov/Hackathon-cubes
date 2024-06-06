@@ -1,0 +1,23 @@
+    .button {
+    border-radius: 50%;
+    border: 1px solid #000;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    background-size: cover;
+}
+
+.module {
+     width: 70px;
+     height: 70px;
+}
+
+.task{
+    width: 30px;
+    height: 30px;
+}
