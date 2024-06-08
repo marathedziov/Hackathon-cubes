@@ -14,8 +14,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-def get_data_json():
-    with open('levels/level1.json', 'r') as f:
+def get_data_json(num_level):
+    path = 'levels/level' + str(num_level) + '.json'
+    print(path)
+    with open(path, 'r') as f:
         data = json.load(f)
         return data
 
@@ -126,10 +128,12 @@ def solving_eq(lvl, module, task):
 @login_required
 @app.route('/show_level')
 def show_level():
-    dict_progress_buttons = {"model1": ["completed", "unblocked", "unblocked", "blocked"],
+    dict_progress_buttons = {"level": 1,
+                             "model1": ["completed", "unblocked", "unblocked", "blocked"],
                              "model2": ["blocked", "blocked", "completed", "unblocked"],
                              "model3": ["completed", "completed", "blocked", "blocked"]}
-    return render_template('level.html', data=get_data_json(), dict_progress_buttons=dict_progress_buttons)
+    return render_template('level.html', data=get_data_json(dict_progress_buttons["level"]),
+                           dict_progress_buttons=dict_progress_buttons)
 
 
 if __name__ == "__main__":

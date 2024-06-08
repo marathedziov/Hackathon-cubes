@@ -1,76 +1,118 @@
-//{
-//    "name_level": "...",
-//    "num_lvl": 2,
-//    "background": "background_lvl_2.png",
-//    "modules": [
-//        {
-//            "name_module": "...",
-//            "num_module": 1,
-//            "img_not_passed": "module_not_passed_2_1.png",
-//            "img_passed": "module_passed_2_1.png",
-//            "tasks": [
-//                {
-//                    "num_task": 1,
-//                    "img_not_passed": "task_not_passed_2_1_1.png",
-//                    "img_passed": "task_passed_2_1_1.png"
-//                },
-//                {
-//                    "num_task": 2,
-//                    "img_not_passed": "task_not_passed_2_1_2.png",
-//                    "img_passed": "task_passed_2_1_2.png"
-//                },
-//                {
-//                    "num_task": 3,
-//                    "img_not_passed": "task_not_passed_2_1_3.png",
-//                    "img_passed": "task_passed_2_1_3.png"
-//                }
-//            ]
-//        },
-//        {
-//            "name_module": "...",
-//            "num_module": 2,
-//            "img_not_passed": "img_not_passed_2_2.png",
-//            "img_passed": "img_passed_2_2.png",
-//            "tasks": [
-//                {
-//                    "num_task": 1,
-//                    "img_not_passed": "task_not_passed_2_2_1.png",
-//                    "img_passed": "task_passed_2_2_1.png"
-//                },
-//                {
-//                    "num_task": 2,
-//                    "img_not_passed": "task_not_passed_2_2_2.png",
-//                    "img_passed": "task_passed_2_2_2.png"
-//                },
-//                {
-//                    "num_task": 3,
-//                    "img_not_passed": "task_not_passed_2_2_3.png",
-//                    "img_passed": "task_passed_2_2_3.png"
-//                }
-//            ]
-//        },
-//        {
-//            "name_module": "...",
-//            "num_module": 3,
-//            "img_not_passed": "img_not_passed_2_3.png",
-//            "img_passed": "img_passed_2_3.png",
-//            "tasks": [
-//                {
-//                    "num_task": 1,
-//                    "img_not_passed": "task_not_passed_2_3_1.png",
-//                    "img_passed": "task_passed_2_3_1.png"
-//                },
-//                {
-//                    "num_task": 2,
-//                    "img_not_passed": "task_not_passed_2_3_2.png",
-//                    "img_passed": "task_passed_2_3_2.png"
-//                },
-//                {
-//                    "num_task": 3,
-//                    "img_not_passed": "task_not_passed_2_3_3.png",
-//                    "img_passed": "task_passed_2_3_3.png"
-//                }
-//            ]
-//        }
-//    ]
-//}
+{
+    "name_level": "...",
+    "num_lvl": 2,
+    "background": "background_lvl_2.png",
+    "modules": [
+        {
+            "name_module": "...",
+            "num_module": 1,
+            "img_not_passed": "module_not_passed_2_1.png",
+            "img_passed": "module_passed_2_1.png",
+            "coordinates": [505, 176],
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [540, 55]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [590, 135]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [590, 260]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [540, 335]
+                }
+            ]
+        },
+        {
+            "name_module": "...",
+            "num_module": 2,
+            "img_not_passed": "module_not_passed_2_2.png",
+            "img_passed": "module_passed_2_2.png",
+            "coordinates": [280, 176],
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [320, 55]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [360, 135]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [360, 260]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [320, 335]
+                }
+            ]
+        },
+        {
+            "name_module": "...",
+            "num_module": 3,
+            "img_not_passed": "module_not_passed_2_3.png",
+            "img_passed": "module_passed_2_3.png",
+            "coordinates": [108, 176],
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [133, 80]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [90, 135]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [90, 255]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [133, 320]
+                }
+            ]
+        }
+    ]
+}
