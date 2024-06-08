@@ -31,6 +31,7 @@ class Progress(SqlAlchemyBase):
     user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("users.id"))
     level_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("levels.id"))
     module_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey("modules.id"))
+    task_id = sqlalchemy.Column(sqlalchemy.Integer)
     text_task = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     answer = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     completed = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
