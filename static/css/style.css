@@ -5548,3 +5548,22 @@ blockquote {
     margin: 0 22px 5px; }
     .footer-bottom-nav li a:hover {
       color: white; }
+
+.button {
+    border-radius: 50%;
+    border: 1px solid #000;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    position: absolute;
+    background-size: cover;
+}
+
+.task{
+    width: 40px;
+    height: 40px;
+}

@@ -30,7 +30,7 @@ def load_user(user_id):
 
 @app.route("/")
 def index():
-    return render_template("history.html")
+    return render_template("index.html", current_user=current_user)
 
 
 @login_required
@@ -84,11 +84,25 @@ def login():
         user = db_sess.query(User).filter(User.email == form.email.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
+            print(current_user.username)
             return redirect("/story")
         return render_template('login.html',
                                message="Неправильный логин или пароль",
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect("/")
+
+
+@app.route('/profile')
+@login_required
+def profile():
+    return render_template('user_profile.html', current_user=current_user)
 
 
 @app.route('/the_graphical_equation', methods=['GET', 'POST'])
@@ -114,8 +128,16 @@ def solving_eq(lvl, module, task):
         ans = request.form.get('ans')
         result = request.form.get('result')
         if result == ans:
-            return render_template('level_flower_res.html', res="ПРАВИЛЬНО")
-        return render_template('level_flower_res.html', res="НЕПРАВИЛЬНО")
+            db_sess = db_session.create_session()
+            eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
+                                                Progress.module_id == module,
+                                                Progress.task_id == task).first()
+            eq.completed = 'completed'
+            db_sess.commit()
+            return render_template('check_answer.html', res=True,
+                                   ids=(lvl, module, task))
+        return render_template('check_answer.html', res=False,
+                                   ids=(lvl, module, task))
     else:
         add_into_db(lvl, module, task, current_user)
         db_sess = db_session.create_session()
@@ -126,12 +148,23 @@ def solving_eq(lvl, module, task):
 
 
 @login_required
-@app.route('/show_level')
-def show_level():
-    dict_progress_buttons = {"level": 1,
-                             "model1": ["completed", "unblocked", "unblocked", "blocked"],
-                             "model2": ["blocked", "blocked", "completed", "unblocked"],
-                             "model3": ["completed", "completed", "blocked", "blocked"]}
+@app.route('/show_level<int:level_id>')
+def show_level(level_id):
+    db_sess = db_session.create_session()
+    dict_progress_buttons = {"level": level_id}
+    f = False
+    for i in range(1, 4):
+        g = [(el.task_id, el.completed) for el in list(db_sess.query(Progress).filter(Progress.level_id == level_id,
+                                                                                      Progress.module_id == i))]
+        if i == 1 or g:
+            temp = ['unblocked'] * 5
+            for j in g:
+                temp[j[0] - 1] = j[1]
+            dict_progress_buttons[f'model{i}'] = temp
+        elif "".join(set(dict_progress_buttons[f'model{i - 1}'])) == 'completed':
+            dict_progress_buttons[f'model{i}'] = ['unblocked'] * 5
+        else:
+            dict_progress_buttons[f'model{i}'] = ['blocked'] * 5
     return render_template('level.html', data=get_data_json(dict_progress_buttons["level"]),
                            dict_progress_buttons=dict_progress_buttons)
 

@@ -1,7 +1,7 @@
 {
     "name_level": "...",
-    "num_lvl": 2,
-    "background": "background_lvl_2.png",
+    "num_lvl": 3,
+    "background": "background_lvl_3.png",
     "modules": [
         {
             "name_module": "...",
@@ -12,35 +12,35 @@
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [535, 50]
+                    "coordinates": [525, 50]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [585, 130]
+                    "coordinates": [565, 130]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [630, 190]
+                    "coordinates": [610, 190]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [585, 255]
+                    "coordinates": [565, 255]
                 },
                 {
                     "num_task": 5,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [535, 330]
+                    "coordinates": [525, 330]
                 }
             ]
         },
@@ -53,35 +53,35 @@
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [320, 55]
+                    "coordinates": [335, 55]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [350, 125]
+                    "coordinates": [370, 125]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [380, 190]
+                    "coordinates": [400, 190]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [350, 260]
+                    "coordinates": [370, 260]
                 },
                 {
                     "num_task": 5,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [315, 330]
+                    "coordinates": [335, 330]
                 }
             ]
         },
@@ -122,7 +122,7 @@
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [133, 310]
+                    "coordinates": [135, 310]
                 }
             ]
         }

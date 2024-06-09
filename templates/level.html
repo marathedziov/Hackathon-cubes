@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body style='background-image: url("/static/img/{{ data["background"] }}"); background-repeat: no-repeat;'>
+<body style='background-image: url("/static/img/{{ data["background"] }}"); background-repeat: no-repeat; background-size: cover'>
     {% for module in data['modules'] %}
-        <button class="button module" style="top: {{ module['coordinates'][0] }}px; left: {{ module['coordinates'][1] }}px; background-image: url('static/img/{{ module['img_not_passed'] }}"></button>
-        {% for task in module['tasks'] %}
-            <button class="button task" style="top: {{ task['coordinates'][0] }}px; left: {{ task['coordinates'][1] }}px; background-image: url('static/img/{{ dict_progress_buttons['model1'][loop.index0 % 4] }}.png');"></button>
-        {% endfor %}
+    {% set model_number = loop.index0 % 3 + 1 %}
+    {% for task in module['tasks'] %}
+        {% set task_number = loop.index0 % 5 %}
+        {% if dict_progress_buttons['model' ~ model_number][task_number] == "completed" or dict_progress_buttons['model' ~ model_number][task_number] == "blocked"%}
+            <a href="/solv/{{dict_progress_buttons['level']}}{{model_number}}{{task_number + 1}}" class="button task" style="pointer-events: none; top: {{ task['coordinates'][0] }}px; left: {{ task['coordinates'][1] }}px; background-image: url('static/img/{{ dict_progress_buttons['model' ~ model_number][task_number] }}.png');"></a>
+        {% else %}
+            <a href="/solv/{{dict_progress_buttons['level']}}{{model_number}}{{task_number + 1}}" class="button task" style="top: {{ task['coordinates'][0] }}px; left: {{ task['coordinates'][1] }}px; background-image: url('static/img/{{ dict_progress_buttons['model' ~ model_number][task_number] }}.png');"></a>
+        {% endif %}
     {% endfor %}
+{% endfor %}
 </body>
 </html>

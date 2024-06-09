@@ -34,4 +34,4 @@ class Progress(SqlAlchemyBase):
     task_id = sqlalchemy.Column(sqlalchemy.Integer)
     text_task = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     answer = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    completed = sqlalchemy.Column(sqlalchemy.Boolean, default=False)
+    completed = sqlalchemy.Column(sqlalchemy.String, default='unblocked')

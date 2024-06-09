@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if res %}
+        <p style="color: #c9f31d">Ты прям мозг!</p>
+        <img src="/static/img/Brain.png"><br><br>
+        <a href="/show_level{{ids[0]}}" type="submit" class="theme-btn">Идем дальше <i class="far fa-angle-right"></i></a>
+    {% else %}
+        <p style="color: #c9f31d">Неудачка(</p>
+        <img src="/static/img/Brain_bad.png"><br><br>
+        <a href="/solv/{{ids[0]}}{{ids[1]}}{{ids[2]}}" type="submit" class="theme-btn">Попробуй еще раз<i class="far fa-angle-right"></i></a>
+        <a href="/show_level" type="submit" class="theme-btn">Вернуться на карту <i class="far fa-angle-right"></i></a>
+    {% endif %}
+{% endblock %}

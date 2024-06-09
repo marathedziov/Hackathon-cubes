@@ -1,6 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<br>
-<p>Карта</p>
+<style>
+        .button {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0);
+            border: none;
+            padding: 20% 15%;
+            cursor: pointer;
+            font-size: 16px;
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+<div class="container">
+    <img src="/static/img/map/full_red1.png" alt="Sample Image">
+    <a class="button" style="top: 1%; left: 35%;" href="/show_level1">1</a>
+    <a class="button" style="top: 24%; left: 3%;" href="/show_level2">2</a>
+    <a class="button" style="top: 24%; right: 3%;" href="/show_level3">3</a>
+<!--    <a class="button" style="bottom: 5%; left: 35%;" href="/show_level3">4</a>-->
+</div>
 {% endblock %}

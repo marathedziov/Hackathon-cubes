@@ -49,7 +49,7 @@
     <script src="/static/js/wow.min.js"></script>
     <!-- Custom script -->
     <script src="/static/js/script.js"></script>
-    <title>{{title}}</title>
+    <title>URAVNNETIK</title>
 </head>
 <body class="home-one">
 <div class="page-wrapper">
@@ -66,7 +66,7 @@
                 <div class="header-inner rel d-flex align-items-center">
                     <div class="logo-outer">
                         <div class="logo"><a href="/"><img src="/static/img/logos/logo.png" alt="Logo"
-                                                                    title="Logo"></a></div>
+                                                           title="Logo"></a></div>
                     </div>
 
                     <div class="nav-outer clearfix mx-auto">
@@ -74,9 +74,15 @@
                         <nav class="main-menu navbar-expand-lg">
                             <div class="navbar-header">
                                 <div class="mobile-logo my-15">
+                                    {% if current_user.is_authenticated %}
+                                    <a href="/story">
+                                        <img src="/static/img/logos/logo.png" alt="Logo" title="Logo">
+                                    </a>
+                                    {% else %}
                                     <a href="/">
                                         <img src="/static/img/logos/logo.png" alt="Logo" title="Logo">
                                     </a>
+                                    {% endif %}
                                 </div>
                                 <div class="menu-btns">
                                     <div class="menu-sidebar">
@@ -90,8 +96,13 @@
 
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
+                                    {% if current_user.is_authenticated %}
+                                    <li><a href="/user_profile">Имя: {{ current_user.username }}</a></li>
+                                    <li><a href="/logout">Выйти</a></li>
+                                    {% else %}
                                     <li><a href="/login">Войти</a></li>
                                     <li><a href="/register">Зарегистрироваться</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </nav>
@@ -107,7 +118,7 @@
     </header>
     <section class="page-banner-area pt-10 rpt-60 pb-10 rpb-10 rel z-2 text-center">
         <div class="container">
-            <img src="/static/img/name_project.png">
+            <img src="/static/img/logos/name_project.png">
         </div>
     </section>
 
