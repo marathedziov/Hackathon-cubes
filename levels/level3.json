@@ -1,6 +1,6 @@
 {
     "name_level": "...",
-    "num_lvl": 3,
+    "num_lvl": 1,
     "background": "background_lvl_3.png",
     "modules": [
         {
@@ -12,35 +12,35 @@
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [525, 50]
+                    "coordinates": [55, 13]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [565, 130]
+                    "coordinates": [59, 29]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [610, 190]
+                    "coordinates": [63, 45]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [565, 255]
+                    "coordinates": [59, 61]
                 },
                 {
                     "num_task": 5,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [525, 330]
+                    "coordinates": [55, 77]
                 }
             ]
         },
@@ -53,35 +53,35 @@
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [335, 55]
+                    "coordinates": [34, 15]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [370, 125]
+                    "coordinates": [37, 30]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [400, 190]
+                    "coordinates": [40, 45]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [370, 260]
+                    "coordinates": [37, 60]
                 },
                 {
                     "num_task": 5,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [335, 330]
+                    "coordinates": [34, 75]
                 }
             ]
         },
@@ -94,35 +94,35 @@
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [135, 80]
+                    "coordinates": [15, 23]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [90, 135]
+                    "coordinates": [11, 35]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [190, 191]
+                    "coordinates": [19, 45]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [90, 255]
+                    "coordinates": [11, 55]
                 },
                 {
                     "num_task": 5,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [135, 310]
+                    "coordinates": [15, 67]
                 }
             ]
         }

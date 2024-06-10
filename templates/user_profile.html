@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h3 style="color: #c9f31d">Ник: {{ current_user.name }}</h3><br>
+    <h3 style="color: #c9f31d">Ник: {{ current_user.username }}</h3><br>
     <h3 style="color: #c9f31d">Прогресс: </h3>
-    <h3 style="color: #c9f31d" >✔️ Уровень 1: {{ проценты }}%</h3>
-    <h3 style="color: #c9f31d">✔️ Уровень 2: {{ проценты }}%</h3>
-    <h3 style="color: #c9f31d">✔️ Уровень 3: {{ проценты }}%</h3><br>
-    <a href="/map" type="submit" class="theme-btn">Назад    <i class="far fa-angle-right"></i></a>
+    <h3 style="color: #c9f31d" >✔️ Уровень 1:   {{ ur1 }}%</h3>
+    <h3 style="color: #c9f31d">✔️ Уровень 2:    {{ ur2 }}%</h3>
+    <h3 style="color: #c9f31d">✔️ Уровень 3:    {{ ur3 }}%</h3><br>
+    <a href="/map" type="submit" class="theme-btn"> Назад    <i class="far fa-angle-left"></i></a>
 {% endblock %}

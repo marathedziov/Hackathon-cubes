@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/style.css">
-</head>
-<body style='background-image: url("/static/img/{{ data["background"] }}"); background-repeat: no-repeat; background-size: cover'>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <img src="/static/img/{{ data['background'] }}">
     {% for module in data['modules'] %}
     {% set model_number = loop.index0 % 3 + 1 %}
     {% for task in module['tasks'] %}
         {% set task_number = loop.index0 % 5 %}
         {% if dict_progress_buttons['model' ~ model_number][task_number] == "completed" or dict_progress_buttons['model' ~ model_number][task_number] == "blocked"%}
-            <a href="/solv/{{dict_progress_buttons['level']}}{{model_number}}{{task_number + 1}}" class="button task" style="pointer-events: none; top: {{ task['coordinates'][0] }}px; left: {{ task['coordinates'][1] }}px; background-image: url('static/img/{{ dict_progress_buttons['model' ~ model_number][task_number] }}.png');"></a>
+            <a href="/solv/{{dict_progress_buttons['level']}}{{model_number}}{{task_number + 1}}" class="button task" style="pointer-events: none; top: {{ task['coordinates'][0] }}%; left: {{ task['coordinates'][1] }}%; background-image: url('static/img/{{ dict_progress_buttons['model' ~ model_number][task_number] }}.png');"></a>
         {% else %}
-            <a href="/solv/{{dict_progress_buttons['level']}}{{model_number}}{{task_number + 1}}" class="button task" style="top: {{ task['coordinates'][0] }}px; left: {{ task['coordinates'][1] }}px; background-image: url('static/img/{{ dict_progress_buttons['model' ~ model_number][task_number] }}.png');"></a>
+            <a href="/solv/{{dict_progress_buttons['level']}}{{model_number}}{{task_number + 1}}" class="button task" style="top: {{ task['coordinates'][0] }}%; left: {{ task['coordinates'][1] }}%; background-image: url('static/img/{{ dict_progress_buttons['model' ~ model_number][task_number] }}.png');"></a>
         {% endif %}
     {% endfor %}
 {% endfor %}
-</body>
-</html>
+</div>
+<br>
+<a href="/map" class="theme-btn">Назад<i class="far fa-angle-left"></i></a>
+
+{% endblock %}

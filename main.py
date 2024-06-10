@@ -40,9 +40,14 @@ def story():
 
 
 @login_required
-@app.route("/user_profile")
-def user_profile():
-    return render_template("user_profile.html")
+@app.route('/profile')
+def profile():
+    db_sess = db_session.create_session()
+    lvl1 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 1, Progress.completed == "completed").all()
+    lvl2 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 2, Progress.completed == "completed").all()
+    lvl3 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 3, Progress.completed == "completed").all()
+    ur1, ur2, ur3 = len(lvl1) / 15 * 100, len(lvl2) / 15 * 100, len(lvl3) / 15 * 100
+    return render_template('user_profile.html', ur1=ur1, ur2=ur2, ur3=ur3, current_user=current_user)
 
 
 @login_required
@@ -105,12 +110,6 @@ def logout():
     return redirect("/")
 
 
-@app.route('/profile')
-@login_required
-def profile():
-    return render_template('user_profile.html', current_user=current_user)
-
-
 @app.route('/the_graphical_equation', methods=['GET', 'POST'])
 @login_required
 def level_flowers():
@@ -127,6 +126,15 @@ def level_flowers():
         equations, answ = gen_lvl3()
         ans = answ
         return render_template('level_flovers.html', equations=equations)
+
+@login_required
+@app.route("/draft/<int:lvl><int:module><int:task>")
+def draft(lvl, module, task):
+    db_sess = db_session.create_session()
+    eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
+                                        Progress.module_id == module,
+                                        Progress.task_id == task).first()
+    return render_template("draft.html", eq=eq.text_task, ids=str(lvl) + str(module) + str(task))
 
 
 @app.route('/solv/<int:lvl><int:module><int:task>', methods=['GET', 'POST'])
@@ -152,7 +160,7 @@ def solving_eq(lvl, module, task):
         eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
                                             Progress.module_id == module,
                                             Progress.task_id == task).first()
-        return render_template('solving_eq.html', eq=(eq.text_task, eq.answer))
+        return render_template('solving_eq.html', eq=(eq.text_task, eq.answer), ids=(lvl, module, task))
 
 
 @login_required
