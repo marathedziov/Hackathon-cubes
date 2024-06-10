@@ -48,7 +48,13 @@ def user_profile():
 @login_required
 @app.route("/map")
 def map():
-    return render_template("map.html")
+    db_sess = db_session.create_session()
+    lvl_opened = 0
+    for i in range(1, 3):
+        tasks = [el.completed for el in db_sess.query(Progress).filter(Progress.level_id == i)]
+        if tasks.count('completed') >= 12:
+            lvl_opened += 1
+    return render_template("map.html", lvl_opened=lvl_opened)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -106,6 +112,7 @@ def profile():
 
 
 @app.route('/the_graphical_equation', methods=['GET', 'POST'])
+@login_required
 def level_flowers():
     global ans
     res = 'НЕ ПРАВИЛЬНО'
@@ -123,10 +130,11 @@ def level_flowers():
 
 
 @app.route('/solv/<int:lvl><int:module><int:task>', methods=['GET', 'POST'])
+@login_required
 def solving_eq(lvl, module, task):
     if request.method == 'POST':
-        ans = request.form.get('ans')
-        result = request.form.get('result')
+        ans = set(request.form.get('ans').split())
+        result = set(request.form.get('result').split())
         if result == ans:
             db_sess = db_session.create_session()
             eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
@@ -139,7 +147,7 @@ def solving_eq(lvl, module, task):
         return render_template('check_answer.html', res=False,
                                    ids=(lvl, module, task))
     else:
-        add_into_db(lvl, module, task, current_user)
+        add_into_db(lvl, module, task, current_user.get_id())
         db_sess = db_session.create_session()
         eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
                                             Progress.module_id == module,
@@ -161,7 +169,7 @@ def show_level(level_id):
             for j in g:
                 temp[j[0] - 1] = j[1]
             dict_progress_buttons[f'model{i}'] = temp
-        elif "".join(set(dict_progress_buttons[f'model{i - 1}'])) == 'completed':
+        elif dict_progress_buttons[f'model{i - 1}'].count('completed') >= 4:
             dict_progress_buttons[f'model{i}'] = ['unblocked'] * 5
         else:
             dict_progress_buttons[f'model{i}'] = ['blocked'] * 5

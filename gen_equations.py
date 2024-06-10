@@ -46,14 +46,14 @@ def gen_lvl1(k=1, b=0):
 def gen_lvl2_module1():
     x = randint(1, 10)
     if choice([True, False]):
-        return f'x² - {x ** 2} = 0', (x, -x)
+        return f'x² - {x ** 2} = 0', str(x) + ' ' + str(-x)
     else:
         g = randint(-(x ** 2), x ** 2)
         while g == 0 or g == x ** 2:
             g = randint(-(x ** 2), x ** 2)
         r = [g, x ** 2 - g]
         shuffle(r)
-        return f'x² {fk(2, r[0])} = {r[1]}', (x, -x)
+        return f'x² {fk(2, -r[0])} = {r[1]}', str(x) + ' ' + str(-x)
 
 
 def gen_lvl2_module2(c=0):
@@ -76,13 +76,13 @@ def gen_lvl2_module2(c=0):
         return {
             'a': a,
             'b': b,
-            'x': (x1, x2)
+            'x': str(x1) + ' ' + str(x2)
         }
     return {
         'a': a,
         'b': b,
         'c': c,
-        'x': (x1, x2)
+        'x': str(x1) + ' ' + str(x2)
     }
 
 
@@ -111,7 +111,7 @@ def gen_lvl3():
         ['x.png'] * a1 + ['y.png'] * b1 + [c1],
         ['x.png'] * a2 + ['y.png'] * b2 + [c2],
     ]
-    return lst, (x, y)
+    return lst, str(x) + ' ' + str(y)
 
 
 def gen_eq(typee):
@@ -140,12 +140,18 @@ def gen_eq(typee):
 def add_into_db(lvl, module, task, current_user):
     equat = gen_eq(int(f'{lvl}{module}'))
     db_sess = db_session.create_session()
+    temp = [i.text_task for i in db_sess.query(Progress).filter(Progress.level_id == lvl,
+                                                                Progress.module_id == module)]
+    while equat[0] in temp:
+        equat = gen_eq(int(f'{lvl}{module}'))
+        print(equat)
+
     eqs = db_sess.query(Progress).filter(Progress.level_id == lvl,
                                          Progress.module_id == module,
                                          Progress.task_id == task).first()
     if not eqs:
         progress = Progress()
-        progress.user_id = 1
+        progress.user_id = current_user
         progress.level_id = lvl
         progress.module_id = module
         progress.task_id = task

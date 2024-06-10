@@ -8,7 +8,7 @@
             border: none;
             padding: 20% 15%;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 150%;
             color: #000;
             text-align: center;
             text-decoration: none;
@@ -18,10 +18,15 @@
         }
     </style>
 <div class="container">
+    <h4 style="color: #c9f31d">Выберите уровень</h4>
     <img src="/static/img/map/full_red1.png" alt="Sample Image">
-    <a class="button" style="top: 1%; left: 35%;" href="/show_level1">1</a>
-    <a class="button" style="top: 24%; left: 3%;" href="/show_level2">2</a>
-    <a class="button" style="top: 24%; right: 3%;" href="/show_level3">3</a>
+    <a class="button" style="top:3%; left: 33%; color: white" href="/show_level1">1</a>
+    {% if lvl_opened == 1 %}
+        <a class="button" style="top: 24%; left: 3%;  color: white" href="/show_level2">2</a>
+    {% elif lvl_opened == 2 %}
+        <a class="button" style="top: 24%; left: 3%;  color: white" href="/show_level2">2</a>
+        <a class="button" style="top: 24%; right: 3%;  color: white" href="/show_level3">3</a>
+    {% endif %}
 <!--    <a class="button" style="bottom: 5%; left: 35%;" href="/show_level3">4</a>-->
 </div>
 {% endblock %}
