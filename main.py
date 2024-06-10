@@ -43,10 +43,13 @@ def story():
 @app.route('/profile')
 def profile():
     db_sess = db_session.create_session()
-    lvl1 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 1, Progress.completed == "completed").all()
-    lvl2 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 2, Progress.completed == "completed").all()
-    lvl3 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 3, Progress.completed == "completed").all()
-    ur1, ur2, ur3 = len(lvl1) / 15 * 100, len(lvl2) / 15 * 100, len(lvl3) / 15 * 100
+    lvl1 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 1,
+                                          Progress.completed == "completed").all()
+    lvl2 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 2,
+                                          Progress.completed == "completed").all()
+    lvl3 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 3,
+                                          Progress.completed == "completed").all()
+    ur1, ur2, ur3 = round(len(lvl1) / 15 * 100, 1), round(len(lvl2) / 15 * 100, 1), round(len(lvl3) / 15 * 100, 1)
     return render_template('user_profile.html', ur1=ur1, ur2=ur2, ur3=ur3, current_user=current_user)
 
 
@@ -56,7 +59,8 @@ def map():
     db_sess = db_session.create_session()
     lvl_opened = 0
     for i in range(1, 3):
-        tasks = [el.completed for el in db_sess.query(Progress).filter(Progress.level_id == i)]
+        tasks = [el.completed for el in
+                 db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == i)]
         if tasks.count('completed') >= 12:
             lvl_opened += 1
     return render_template("map.html", lvl_opened=lvl_opened)
@@ -127,11 +131,13 @@ def level_flowers():
         ans = answ
         return render_template('level_flovers.html', equations=equations)
 
+
 @login_required
 @app.route("/draft/<int:lvl><int:module><int:task>")
 def draft(lvl, module, task):
     db_sess = db_session.create_session()
-    eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
+    eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                        Progress.level_id == lvl,
                                         Progress.module_id == module,
                                         Progress.task_id == task).first()
     return render_template("draft.html", eq=eq.text_task, ids=str(lvl) + str(module) + str(task))
@@ -145,7 +151,8 @@ def solving_eq(lvl, module, task):
         result = set(request.form.get('result').split())
         if result == ans:
             db_sess = db_session.create_session()
-            eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
+            eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                                Progress.level_id == lvl,
                                                 Progress.module_id == module,
                                                 Progress.task_id == task).first()
             eq.completed = 'completed'
@@ -153,11 +160,12 @@ def solving_eq(lvl, module, task):
             return render_template('check_answer.html', res=True,
                                    ids=(lvl, module, task))
         return render_template('check_answer.html', res=False,
-                                   ids=(lvl, module, task))
+                               ids=(lvl, module, task))
     else:
         add_into_db(lvl, module, task, current_user.get_id())
         db_sess = db_session.create_session()
-        eq = db_sess.query(Progress).filter(Progress.level_id == lvl,
+        eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                            Progress.level_id == lvl,
                                             Progress.module_id == module,
                                             Progress.task_id == task).first()
         return render_template('solving_eq.html', eq=(eq.text_task, eq.answer), ids=(lvl, module, task))
@@ -170,8 +178,9 @@ def show_level(level_id):
     dict_progress_buttons = {"level": level_id}
     f = False
     for i in range(1, 4):
-        g = [(el.task_id, el.completed) for el in list(db_sess.query(Progress).filter(Progress.level_id == level_id,
-                                                                                      Progress.module_id == i))]
+        g = [(el.task_id, el.completed) for el in db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                                                                 Progress.level_id == level_id,
+                                                                                 Progress.module_id == i)]
         if i == 1 or g:
             temp = ['unblocked'] * 5
             for j in g:
