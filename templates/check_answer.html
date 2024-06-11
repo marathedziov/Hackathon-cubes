@@ -2,7 +2,7 @@
 
 {% block content %}
     {% if res %}
-        <p style="color: #c9f31d">Ты прям мозг!</p>
+        <p style="color: #c9f31d">{{message}}</p>
         <img src="/static/img/Brain.png"><br><br>
         <a href="/show_level{{ids[0]}}" type="submit" class="theme-btn">Идем дальше <i class="far fa-angle-right"></i></a>
     {% else %}

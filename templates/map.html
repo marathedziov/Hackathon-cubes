@@ -19,11 +19,14 @@
     </style>
 <div class="container">
     <h4 style="color: #c9f31d">Выберите уровень</h4>
-    <img src="/static/img/map/full_red1.png" alt="Sample Image">
-    <a class="button" style="top:3%; left: 33%; color: white" href="/show_level1">1</a>
-    {% if lvl_opened == 1 %}
+    {% if lvl_opened == 0 %}
+        <img src="/static/img/map/lvl0.png" alt="Sample Image">
+        <a class="button" style="top:3%; left: 33%; color: white;" href="/show_level1">1</a>
+    {% elif lvl_opened == 1 %}
+        <img src="/static/img/map/lvl1.png" alt="Sample Image">
         <a class="button" style="top: 24%; left: 3%;  color: white" href="/show_level2">2</a>
     {% elif lvl_opened == 2 %}
+        <img src="/static/img/map/lvl2.png" alt="Sample Image">
         <a class="button" style="top: 24%; left: 3%;  color: white" href="/show_level2">2</a>
 <!--        <a class="button" style="top: 24%; right: 3%;  color: white" href="/show_level3">3</a>-->
     {% endif %}

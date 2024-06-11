@@ -1,4 +1,5 @@
 import json
+from random import choice
 
 from flask import Flask, render_template, redirect, abort, request
 from data import db_session
@@ -6,7 +7,7 @@ from data.level_module_task import Progress
 from data.users import User
 from forms.user import RegisterForm, LoginForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from gen_equations import gen_lvl3, add_into_db
+from gen_equations import gen_lvl3, add_into_db, gen_message
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "hackaton_cubes"
@@ -158,7 +159,7 @@ def solving_eq(lvl, module, task):
             eq.completed = 'completed'
             db_sess.commit()
             return render_template('check_answer.html', res=True,
-                                   ids=(lvl, module, task))
+                                   ids=(lvl, module, task), message=gen_message())
         return render_template('check_answer.html', res=False,
                                ids=(lvl, module, task))
     else:
@@ -168,7 +169,6 @@ def solving_eq(lvl, module, task):
                                             Progress.level_id == lvl,
                                             Progress.module_id == module,
                                             Progress.task_id == task).first()
-        print(current_user.get_id(), eq)
         return render_template('solving_eq.html', eq=(eq.text_task, eq.answer), ids=(lvl, module, task))
 
 
