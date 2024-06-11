@@ -168,6 +168,7 @@ def solving_eq(lvl, module, task):
                                             Progress.level_id == lvl,
                                             Progress.module_id == module,
                                             Progress.task_id == task).first()
+        print(current_user.get_id(), eq)
         return render_template('solving_eq.html', eq=(eq.text_task, eq.answer), ids=(lvl, module, task))
 
 
@@ -196,4 +197,4 @@ def show_level(level_id):
 
 if __name__ == "__main__":
     db_session.global_init("db/hackathon.db")
-    app.run(debug=True)
+    app.run()

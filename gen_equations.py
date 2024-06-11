@@ -140,13 +140,15 @@ def gen_eq(typee):
 def add_into_db(lvl, module, task, current_user):
     equat = gen_eq(int(f'{lvl}{module}'))
     db_sess = db_session.create_session()
-    temp = [i.text_task for i in db_sess.query(Progress).filter(Progress.level_id == lvl,
+    temp = [i.text_task for i in db_sess.query(Progress).filter(Progress.user_id == current_user,
+                                                                Progress.level_id == lvl,
                                                                 Progress.module_id == module)]
     while equat[0] in temp:
         equat = gen_eq(int(f'{lvl}{module}'))
         print(equat)
 
-    eqs = db_sess.query(Progress).filter(Progress.level_id == lvl,
+    eqs = db_sess.query(Progress).filter(Progress.user_id == current_user,
+                                         Progress.level_id == lvl,
                                          Progress.module_id == module,
                                          Progress.task_id == task).first()
     if not eqs:
