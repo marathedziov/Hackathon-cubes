@@ -1,116 +1,128 @@
 {
     "name_level": "...",
     "num_lvl": 1,
-    "background": "background_lvl_1.png",
+    "background": "background_lvl_3.png",
     "modules": [
         {
             "name_module": "...",
             "num_module": 1,
-            "img_not_passed": "module_not_passed_1_1.png",
-            "img_passed": "module_passed_1_1.png",
-            "coordinates": [605, 125],
             "tasks": [
                 {
                     "num_task": 1,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [568, 155]
+                    "coordinates": [55, 13]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [543, 195]
+                    "coordinates": [59, 29]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [525, 240]
+                    "coordinates": [63, 45]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [494, 282]
+                    "coordinates": [59, 61]
+                },
+                {
+                    "num_task": 5,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [55, 77]
                 }
             ]
         },
         {
             "name_module": "...",
             "num_module": 2,
-            "img_not_passed": "module_not_passed_1_2.png",
-            "img_passed": "module_passed_1_2.png",
-            "coordinates": [437, 320],
             "tasks": [
                 {
                     "num_task": 1,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [290, 145]
+                    "coordinates": [34, 15]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [310, 210]
+                    "coordinates": [37, 30]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [330, 280]
+                    "coordinates": [40, 45]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [380, 340]
+                    "coordinates": [37, 60]
+                },
+                {
+                    "num_task": 5,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [34, 75]
                 }
             ]
         },
         {
             "name_module": "...",
             "num_module": 3,
-            "img_not_passed": "module_not_passed_1_3.png",
-            "img_passed": "module_passed_1_3.png",
-            "coordinates": [240, 65],
             "tasks": [
                 {
                     "num_task": 1,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [198, 95]
+                    "coordinates": [15, 23]
                 },
                 {
                     "num_task": 2,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [145, 130]
+                    "coordinates": [11, 35]
                 },
                 {
                     "num_task": 3,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [105, 175]
+                    "coordinates": [19, 45]
                 },
                 {
                     "num_task": 4,
                     "img_unblocked": "unblocked.png",
                     "img_blocked": "blocked.png",
                     "img_completed": "completed.png",
-                    "coordinates": [62, 245]
+                    "coordinates": [11, 55]
+                },
+                {
+                    "num_task": 5,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [15, 67]
                 }
             ]
         }

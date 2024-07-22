@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-page pt-40 pb-130 rpb-100 rel z-1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="contact-page-form contact-form form-style-one wow fadeInUp delay-0-2s">
+                    <form action="" method="post">
+                        {{ form.hidden_tag() }}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <p>
+                                        {{ form.username.label }}
+                                        {{ form.username(class="form-control") }}
+                                        {% for error in form.username.errors %}
+                                    <p class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                    <label for="name" class="for-icon"><i class="far fa-user"></i></label>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <p>
+                                        {{ form.email.label }}
+                                        {{ form.email(class="form-control", type="email") }}
+                                    <label for="email" class="for-icon"><i class="far fa-envelope"></i></label>
+                                    <div class="help-block with-errors"></div>
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <p>
+                                        {{ form.password.label }}
+                                        {{ form.password(class="form-control", type="password") }}
+                                        {% for error in form.password.errors %}
+                                    <p class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                    <label for="subject" class="for-icon"><i class="far fa-text"></i></label>
+                                    <div class="help-block with-errors"></div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <p>
+                                        {{ form.password_again.label }}
+                                        {{ form.password_again(class="form-control", type="password") }}
+                                        {% for error in form.password_again.errors %}
+                                    <p class="alert alert-danger" role="alert">
+                                        {{ error }}
+                                    </p>
+                                    {% endfor %}
+                                    <label for="subject" class="for-icon"><i class="far fa-text"></i></label>
+                                    <div class="help-block with-errors"></div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div>{{ message }}</div>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-0">
+                                    <p>{{ form.submit(type="submit", class="theme-btn") }}</p>
+                                    <div id="msgSubmit" class="hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

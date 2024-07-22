@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+      td {
+        font-size: 8vw;
+      }
+      img {
+        width: 8vw;
+      }
+    </style>
+  <body>
+  <table align="center">
+    {% for imgs in equations %}
+      <tr>
+        {% for img in imgs[:-2] %}
+        <td><img src="/static/img/{{img}}">+</td>
+        {% endfor %}
+        <td><img src="/static/img/{{imgs[-2]}}">=</td>
+        <td>{{imgs[-1]}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <form method="post" action="/check">
+    <div align="center" style="margin-top: 3vh">
+      <input type="text" name="ans_x" placeholder="Ответ x"/>
+      <input type="text" name="ans_y" placeholder="Ответ y"/>
+    </div>
+    <div align="center" style="margin-top: 3vh">
+      <a class="btn btn-primary" href="/check">Проверить</a>
+    </div>
+  </form>
+  </body>
+{% endblock %}

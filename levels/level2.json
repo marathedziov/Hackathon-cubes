@@ -1,0 +1,130 @@
+{
+    "name_level": "...",
+    "num_lvl": 2,
+    "background": "background_lvl_2.png",
+    "modules": [
+        {
+            "name_module": "...",
+            "num_module": 1,
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [60, 13]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [64, 29]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [68, 45]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [64, 61]
+                },
+                {
+                    "num_task": 5,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [60, 77]
+                }
+            ]
+        },
+        {
+            "name_module": "...",
+            "num_module": 2,
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [34, 15]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [37, 30]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [40, 45]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [37, 60]
+                },
+                {
+                    "num_task": 5,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [34, 75]
+                }
+            ]
+        },
+        {
+            "name_module": "...",
+            "num_module": 3,
+            "tasks": [
+                {
+                    "num_task": 1,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [15, 23]
+                },
+                {
+                    "num_task": 2,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [11, 35]
+                },
+                {
+                    "num_task": 3,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [19, 45]
+                },
+                {
+                    "num_task": 4,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [11, 55]
+                },
+                {
+                    "num_task": 5,
+                    "img_unblocked": "unblocked.png",
+                    "img_blocked": "blocked.png",
+                    "img_completed": "completed.png",
+                    "coordinates": [15, 67]
+                }
+            ]
+        }
+    ]
+}

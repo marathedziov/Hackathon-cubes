@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4 style="color: gray">Ник: <span style="color: #c9f31d">{{ current_user.username }}</span></h4><br>
+    <h4 style="color: gray">Прогресс:</h4><br>
+    <h4 style="color: gray"><span style="color: #c9f31d">✓</span> Уровень 1:  <span style="color: #c9f31d; font-size: 130%">{{ ur1 }}%</span></h4><br>
+    <h4 style="color: gray"><span style="color: #c9f31d">✓</span> Уровень 2:  <span style="color: #c9f31d; font-size: 130%">{{ ur2 }}%</span></h4><br>
+    <h4 style="color: gray"><span style="color: #c9f31d">✓</span> Уровень 3:  <span style="color: #c9f31d; font-size: 130%">{{ ur3 }}%</span></h4><br>
+
+    <a href="/map" type="submit" class="theme-btn"> Назад    <i class="far fa-angle-left"></i></a>
+{% endblock %}
