@@ -5563,6 +5563,21 @@ blockquote {
     background-size: cover;
 }
 
+.dialog {
+  width: fit-content;
+  margin: auto;
+  padding: 20px;
+  background-color: #101010;
+  border-radius: 1rem;
+  border-color: #1D1B1A;
+  color: #c9f31d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
 .task{
     width: 40px;
     height: 40px;

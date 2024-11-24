@@ -50,13 +50,13 @@ def profile():
                                           Progress.completed == "completed").all()
     lvl3 = db_sess.query(Progress).filter(Progress.user_id == current_user.id, Progress.level_id == 3,
                                           Progress.completed == "completed").all()
-    ur1, ur2, ur3 = round(len(lvl1) / 15 * 100, 1), round(len(lvl2) / 15 * 100, 1), round(len(lvl3) / 15 * 100, 1)
+    ur1, ur2, ur3 = round(len(lvl1) / 15 * 100, 1), round(len(lvl2) / 15 * 100, 1), round(len(lvl3) / 5 * 100, 1)
     return render_template('user_profile.html', ur1=ur1, ur2=ur2, ur3=ur3, current_user=current_user)
 
 
 @login_required
 @app.route("/map")
-def map():
+def mapp():
     db_sess = db_session.create_session()
     lvl_opened = 0
     for i in range(1, 3):
@@ -115,22 +115,48 @@ def logout():
     return redirect("/")
 
 
-@app.route('/the_graphical_equation', methods=['GET', 'POST'])
+@app.route('/solvlvl3/<int:task>', methods=['GET', 'POST'])
 @login_required
-def level_flowers():
-    global ans
-    res = 'НЕ ПРАВИЛЬНО'
+def solving_lvl3(task):
     if request.method == 'POST':
-        res_x = request.form['ans_x']
-        res_y = request.form['ans_y']
-        print((int(res_x), int(res_y)), ans)
-        if (int(res_x), int(res_y)) == ans:
-            res = "ПРАВИЛЬНО"
-        return render_template('level_flower_res.html', res=res)
+        try:
+            ans = set(map(lambda x: int(x.strip('.,')), request.form.get('ans').split()))
+            result = set(map(lambda x: int(x.strip('.,')), request.form.get('result').split()))
+            if result == ans:
+                db_sess = db_session.create_session()
+                eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                                    Progress.level_id == 3,
+                                                    Progress.module_id == 1,
+                                                    Progress.task_id == task).first()
+                eq.completed = 'completed'
+                db_sess.commit()
+                return render_template('check_answer.html', res=True,
+                                       ids=task, message=gen_message(1))
+            return render_template('check_answer.html', res=False,
+                                   ids=task, message=gen_message(0))
+        except ValueError:
+            return render_template('check_answer.html', res=False,
+                                   ids=task, message='Ответ должен быть числами')
     else:
-        equations, answ = gen_lvl3()
-        ans = answ
-        return render_template('level_flovers.html', equations=equations)
+        add_into_db(3, 1, task, current_user.get_id())
+        db_sess = db_session.create_session()
+        eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                            Progress.level_id == 3,
+                                            Progress.module_id == 1,
+                                            Progress.task_id == task).first()
+        equa = eq.text_task.split(':')
+        return render_template('solv_lvl3.html', eq=(equa, eq.answer), task=task)
+
+
+@app.route("/draft_lvl3/<int:task>")
+def draft_lvl3(task):
+    db_sess = db_session.create_session()
+    eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                        Progress.level_id == 3,
+                                        Progress.module_id == 1,
+                                        Progress.task_id == task).first()
+    equa = eq.text_task.split(':')
+    return render_template("draft_lvl3.html", eq=(equa, eq.text_task), task=task)
 
 
 @login_required
@@ -148,20 +174,24 @@ def draft(lvl, module, task):
 @login_required
 def solving_eq(lvl, module, task):
     if request.method == 'POST':
-        ans = set(request.form.get('ans').split())
-        result = set(request.form.get('result').split())
-        if result == ans:
-            db_sess = db_session.create_session()
-            eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
-                                                Progress.level_id == lvl,
-                                                Progress.module_id == module,
-                                                Progress.task_id == task).first()
-            eq.completed = 'completed'
-            db_sess.commit()
-            return render_template('check_answer.html', res=True,
-                                   ids=(lvl, module, task), message=gen_message())
-        return render_template('check_answer.html', res=False,
-                               ids=(lvl, module, task))
+        try:
+            ans = set(map(lambda x: int(x.strip('.,')), request.form.get('ans').split()))
+            result = set(map(lambda x: int(x.strip('.,')), request.form.get('result').split()))
+            if result == ans:
+                db_sess = db_session.create_session()
+                eq = db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                                    Progress.level_id == lvl,
+                                                    Progress.module_id == module,
+                                                    Progress.task_id == task).first()
+                eq.completed = 'completed'
+                db_sess.commit()
+                return render_template('check_answer.html', res=True,
+                                       ids=(lvl, module, task), message=gen_message(1))
+            return render_template('check_answer.html', res=False,
+                                   ids=(lvl, module, task), message=gen_message(0))
+        except ValueError:
+            return render_template('check_answer.html', res=False,
+                                   ids=(lvl, module, task), message='Ответ должен быть числами')
     else:
         add_into_db(lvl, module, task, current_user.get_id())
         db_sess = db_session.create_session()
@@ -176,8 +206,17 @@ def solving_eq(lvl, module, task):
 @app.route('/show_level<int:level_id>')
 def show_level(level_id):
     db_sess = db_session.create_session()
+    if level_id == 3:
+        dict_progress_buttons = ['unblocked'] * 5
+        g = [(el.task_id, el.completed) for el in db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                                                                 Progress.level_id == 3,
+                                                                                 Progress.module_id == 1)]
+        for eq in g:
+            dict_progress_buttons[eq[0] - 1] = eq[1]
+        return render_template('level3.html', dict_progress_buttons=dict_progress_buttons)
+
     dict_progress_buttons = {"level": level_id}
-    f = False
+    lvl_open = False
     for i in range(1, 4):
         g = [(el.task_id, el.completed) for el in db_sess.query(Progress).filter(Progress.user_id == current_user.id,
                                                                                  Progress.level_id == level_id,
@@ -191,10 +230,14 @@ def show_level(level_id):
             dict_progress_buttons[f'model{i}'] = ['unblocked'] * 5
         else:
             dict_progress_buttons[f'model{i}'] = ['blocked'] * 5
+    g = filter(lambda x: x.completed == 'completed', db_sess.query(Progress).filter(Progress.user_id == current_user.id,
+                                                                                    Progress.level_id == level_id))
+    if len(list(g)) >= 12:
+        lvl_open = level_id + 1
     return render_template('level.html', data=get_data_json(dict_progress_buttons["level"]),
-                           dict_progress_buttons=dict_progress_buttons)
+                           dict_progress_buttons=dict_progress_buttons, lvl_open=lvl_open)
 
 
 if __name__ == "__main__":
-    db_session.global_init("db/hackathon.db")
+    db_session.global_init("db/uravnnetik.db")
     app.run()

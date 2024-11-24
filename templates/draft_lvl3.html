@@ -176,133 +176,159 @@
         <section class="page-banner-area pt-100 rpt-60 pb-100 rpb-60 rel z-1 text-center">
             <div class="container">
                 <img src="/static/img/logos/name_project.png">
-            </div><br>
+            </div>
+            <br>
             <main role="main" class="container">
                 <style>
-                    canvas {
-                        border: 1px solid #474b4e;
-                        border-radius: 10px;
-                        touch-action: none;
-                        width: 90vw;
-                        height: 40vh;
-                        max-width: 1000px;
-                        max-height: 600px;
-                        background-color: #1A1A1A;
+                    #canvas_div {
+                        text-align: center;
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
                     }
-
+                    canvas {
+                            border: 1px solid #474b4e;
+                            border-radius: 10px;
+                            touch-action: none;
+                            background-color: #1A1A1A;
+                        }
                 </style>
-                <div class="container">
-                    <h2>{{eq}}</h2>
+
+                <div id="canvas_div" style="overflow-x: auto;">
+                    <div class="form-group">
+                    <p style="color: #c9f31d">Решите систему уравнений</p>
+                    <table>
+                        {% for imgs in eq[0] %}
+                        {% set imgs = imgs.split() %}
+                        <tr style="font-size: x-large ">
+                            {% for img in imgs[:-2] %}
+                            <td><img style="object-fit: contain; width: min-content" src="/static/img/{{img}}"></td>
+                            <td>+</td>
+                            {% endfor %}
+                            <td><img style="object-fit: contain; width: min-content" src="/static/img/{{imgs[-2]}}"></td>
+                            <td> = </td>
+                            <td> {{imgs[-1]}} </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
                     <br>
-                    <canvas id="drawingCanvas"></canvas>
-                    <input type="range" id="brushSizeRange" value="2" min="1" max="50">
-                    <button id="drawButton" class="theme-btn" style="width: 30%; background-color: gray"><i class="fas fa-pen" style="color: #C9F31D;"></i></button>
-                    <button id="eraseButton" class="theme-btn" style="width: 30%; background-color: gray"><i class="fas fa-eraser"  style="color: #C9F31D;"></i></button>
-                    <button id="clearButton" class="theme-btn" style="width: 30%; background-color: gray"><i class="fas fa-broom"  style="color: #C9F31D;"></i></button>
+                    <canvas id="canvas" width="350%" height="300%"></canvas>
+
+                    <div>
+                        <input type="range" id="selWidth" value="2" min="1" max="50">
+                        <button onclick="setMode('draw');" class="theme-btn" style="width: 30%; background-color: gray"><i class="fas fa-pen" style="color: #C9F31D;"></i></button>
+                        <button onclick="setMode('erase');" class="theme-btn" style="width: 30%; background-color: gray"><i class="fas fa-eraser"  style="color: #C9F31D;"></i></button>
+                        <button onclick="javascript:clearArea();return false;" class="theme-btn" style="width: 30%; background-color: gray"><i class="fas fa-broom"  style="color: #C9F31D;"></i></button>
+
+                    </div>
                 </div>
                 <br>
-                <div align="left" style="margin-left: 5vw">
-                    <a href="/solv/{{ids}}" type="submit" class="theme-btn"> Назад    <i class="far fa-angle-left"></i></a>
+                <div style="margin-left: 5vw">
+                    <a href="/solvlvl3/{{task}}" type="submit" class="theme-btn"> Назад    <i class="far fa-angle-left"></i></a>
                 </div>
+
                 <script>
-                    const canvas = document.getElementById('drawingCanvas');
+                    const canvas = document.getElementById('canvas');
                     const context = canvas.getContext('2d');
-                    const drawButton = document.getElementById('drawButton');
-                    const eraseButton = document.getElementById('eraseButton');
-                    const clearButton = document.getElementById('clearButton');
-                    const brushSizeRange = document.getElementById('brushSizeRange');
-                    const brushSizeNumber = 10;
+                    let mode = 'draw';
+                    const viewport = window.visualViewport;
+                    var offsetX;
+                    var offsetY;
 
-                    let drawing = false;
-                    let erasing = false;
-
-                    // Установим размеры canvas
-                    function resizeCanvas() {
-                        canvas.width = canvas.clientWidth;
-                        canvas.height = canvas.clientHeight;
-                        context.lineWidth = brushSizeRange.value;
-                        context.lineCap = 'round';
+                    function startup() {
+                      canvas.addEventListener('touchstart', handleStart);
+                      canvas.addEventListener('touchend', handleEnd);
+                      canvas.addEventListener('touchcancel', handleCancel);
+                      canvas.addEventListener('touchmove', handleMove);
                     }
 
-                    window.addEventListener('resize', resizeCanvas);
-                    resizeCanvas();
+                    document.addEventListener("DOMContentLoaded", startup);
 
-                    canvas.addEventListener('mousedown', startDrawing, false);
-                    canvas.addEventListener('mousemove', draw, false);
-                    canvas.addEventListener('mouseup', stopDrawing, false);
-                    canvas.addEventListener('mouseout', stopDrawing, false);
+                    const ongoingTouches = [];
 
-                    canvas.addEventListener('touchstart', startDrawing, false);
-                    canvas.addEventListener('touchmove', draw, false);
-                    canvas.addEventListener('touchend', stopDrawing, false);
-                    canvas.addEventListener('touchcancel', stopDrawing, false);
-
-                    drawButton.addEventListener('click', () => {
-                        erasing = false;
-                        drawButton.classList.add('active');
-                        eraseButton.classList.remove('active');
-                    });
-
-                    eraseButton.addEventListener('click', () => {
-                        erasing = true;
-                        drawButton.classList.remove('active');
-                        eraseButton.classList.add('active');
-                    });
-
-                    brushSizeRange.addEventListener('input', () => {
-                        brushSizeNumber.value = brushSizeRange.value;
-                        context.lineWidth = brushSizeRange.value;
-                    });
-
-                    function getMousePosition(event) {
-                        return {
-                            x: event.clientX - canvas.offsetLeft,
-                            y: event.clientY - canvas.offsetTop
-                        };
+                    function setMode(newMode) {
+                        mode = newMode;
                     }
 
-                    function getTouchPosition(event) {
-                        const touch = event.touches[0];
-                        return {
-                            x: touch.clientX - canvas.offsetLeft,
-                            y: touch.clientY - canvas.offsetTop
-                        };
+                    function handleStart(evt) {
+                      evt.preventDefault();
+                      const touches = evt.changedTouches;
+                      offsetX = canvas.getBoundingClientRect().left;
+                      offsetY = canvas.getBoundingClientRect().top;
+                      console.log(offsetX, offsetY)
+                      for (let i = 0; i < touches.length; i++) {
+                        ongoingTouches.push(copyTouch(touches[i]));
+                      }
                     }
 
-                    function startDrawing(event) {
-                        event.preventDefault();
-                        drawing = true;
-                        context.beginPath();
-                        const position = event.touches ? getTouchPosition(event) : getMousePosition(event);
-                        context.moveTo(position.x, position.y);
+                    function handleMove(evt) {
+                      evt.preventDefault();
+                      const touches = evt.changedTouches;
+                      for (let i = 0; i < touches.length; i++) {
+                        const idx = ongoingTouchIndexById(touches[i].identifier);
+                        if (idx >= 0) {
+                          context.beginPath();
+                          context.moveTo(ongoingTouches[idx].clientX - offsetX, ongoingTouches[idx].clientY - offsetY);
+                          context.lineTo(touches[i].clientX - offsetX, touches[i].clientY - offsetY);
+                          context.lineWidth = document.getElementById('selWidth').value;
+                          if (mode === 'draw') {
+                              context.strokeStyle = "white";
+                          } else if (mode === 'erase') {
+                              context.strokeStyle = "#1A1A1A"; // Цвет фона
+                          }
+                          context.lineJoin = "round";
+                          context.closePath();
+                          context.stroke();
+                          ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
+                        }
+                      }
                     }
 
-                    function draw(event) {
-                        event.preventDefault();
-                        if (!drawing) return;
-                        const position = event.touches ? getTouchPosition(event) : getMousePosition(event);
-                        context.lineTo(position.x, position.y);
-                        context.strokeStyle = erasing ? '#1A1A1A' : '#ffffff';
-                        context.stroke();
+                    function handleEnd(evt) {
+                      evt.preventDefault();
+                      const touches = evt.changedTouches;
+                      for (let i = 0; i < touches.length; i++) {
+                        let idx = ongoingTouchIndexById(touches[i].identifier);
+                        if (idx >= 0) {
+                          context.lineWidth = document.getElementById('selWidth').value;
+                          ongoingTouches.splice(idx, 1);  // remove it; we're done
+                        }
+                      }
                     }
 
-                    function stopDrawing(event) {
-                        event.preventDefault();
-                        drawing = false;
-                        context.closePath();
+                    function handleCancel(evt) {
+                      evt.preventDefault();
+                      const touches = evt.changedTouches;
+                      for (let i = 0; i < touches.length; i++) {
+                        let idx = ongoingTouchIndexById(touches[i].identifier);
+                        ongoingTouches.splice(idx, 1);  // remove it; we're done
+                      }
                     }
 
-                    // Очистка экрана
-                    clearButton.addEventListener('click', () => {
-                        context.clearRect(0, 0, canvas.width, canvas.height);
-                    });
+                    function copyTouch({ identifier, clientX, clientY }) {
+                      return { identifier, clientX, clientY };
+                    }
+
+                    function ongoingTouchIndexById(idToFind) {
+                      for (let i = 0; i < ongoingTouches.length; i++) {
+                        const id = ongoingTouches[i].identifier;
+                        if (id === idToFind) {
+                          return i;
+                        }
+                      }
+                      return -1;    // not found
+                    }
+
+                    function clearArea() {
+                        context.setTransform(1, 0, 0, 1, 0, 0);
+                        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+                    }
+
                 </script>
+
             </main>
         </section>
-
-        <!-- Page Banner End -->
 </div>
-<!-- Begin page content -->
-
 </body>
 </html>

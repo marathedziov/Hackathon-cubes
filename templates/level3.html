@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    {% for task in dict_progress_buttons %}
+        {% set task_number = loop.index0 % 5 %}
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10vh; margin-top: 10vh; z-index: 1">
+            <a href="/solvlvl3/{{task_number + 1}}" class="button task" style="background-image: url('static/img/{{ task }}.png'); text-align: center;"></a>
+        </div>
+    {% endfor %}
+</div>
+<br>
+<a href="/map" class="theme-btn">Назад<i class="far fa-angle-left"></i></a>
+
+{% endblock %}

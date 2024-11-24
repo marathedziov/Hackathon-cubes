@@ -1,6 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% if lvl_open %}
+<dialog id="myDialog" class="dialog">
+    <h2>Поздравляем!</h2>
+    <p>Уровень {{lvl_open}} открыт!</p>
+    <button id="closeDialog" class="theme-btn">Отлично</button>
+</dialog>
+
+<script>
+    const dialog = document.getElementById('myDialog');
+    const closeDialogButton = document.getElementById('closeDialog');
+
+    function openDialogButton() {
+        dialog.showModal(); // Открыть диалог как модальное окно
+    };
+
+    closeDialogButton.addEventListener('click', () => {
+        dialog.close(); // Закрыть диалог
+    });
+
+    window.onload = openDialogButton;
+</script>
+{% endif %}
+
 <div class="container">
     <img src="/static/img/{{ data['background'] }}">
     {% for module in data['modules'] %}

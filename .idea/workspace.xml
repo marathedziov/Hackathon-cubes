@@ -1,7 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb7fcf21-43fc-429f-a98c-c5fdcc63a1d2" name="Changes" comment="" />
+    <list default="true" id="bb7fcf21-43fc-429f-a98c-c5fdcc63a1d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/level3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/solv_lvl3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/uravnnetik.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/uravnnetik.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen_equations.py" beforeDir="false" afterPath="$PROJECT_DIR$/gen_equations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/animate.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/fontawesome-5.14.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/fontawesome-5.14.0.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/slick.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/slick.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon_noxfolio.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/flaticon_noxfolio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon_noxfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/flaticon_noxfolio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/fonts/flaticon_noxfolio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/static/fonts/flaticon_noxfolio.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/shape/sidebar-tottler.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/shape/sidebar-tottler.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/x.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/y.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/y.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/appear.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/appear.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/contact-form-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/contact-form-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/form-validator.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/form-validator.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/imagesloaded.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/imagesloaded.pkgd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/isotope.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/isotope.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/isotope.pkgd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/isotope.pkgd.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery-3.6.0.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery-3.6.0.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/jquery.nice-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/jquery.nice-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/slick.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/slick.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/wow.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/wow.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/php/form-process.php" beforeDir="false" afterPath="$PROJECT_DIR$/static/php/form-process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_common-classes.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_common-classes.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_custom-animation.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_custom-animation.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_default.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_default.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_extend.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_extend.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_mixins.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_mixins.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_spacing.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_spacing.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/base/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/base/_variables.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_about.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_about.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_banner.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_banner.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_blog.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_blog.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_client-logo.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_client-logo.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_contact.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_contact.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_error.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_error.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_faq.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_faq.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_footer.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_footer.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_header.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_header.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_hero.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_hero.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_pricing.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_pricing.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_projects.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_projects.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_resume.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_resume.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_services.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_services.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_skills.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_skills.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_testimonials.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_testimonials.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/sections/_widgets.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/sections/_widgets.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sass/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/static/sass/style.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/check_answer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/check_answer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/draft.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/draft.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/draft_old.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/draft_lvl3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/level.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/level.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/level_flovers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/level_flower_res.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/solving_eq.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/solving_eq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/story.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/story.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_profile.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,12 +91,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DEIVOZE&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/marathedziov/Hackathon-cubes.git&quot;,
+    &quot;accountId&quot;: &quot;cd19f753-43fd-42f4-af4a-28d0e793f096&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2jbjHAda1CgUHGDRlH3oqXcXnNu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,16 +116,79 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Hackathon-cubes1.executor": "Run",
+    "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Проекты Яндекс Лицей/WEB_OSS"
+    "last_opened_file_path": "D:/PythonProjects/Hackathon-cubes1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\Hackathon-cubes1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Hackathon-cubes1">
+    <configuration name="Hackathon-cubes1" type="PythonConfigurationType" factoryName="Python">
+      <module name="Hackathon-cubes1" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (test)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-eebebe6c2be4-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15325.20" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.347" />
+        <option value="bundled-python-sdk-c2d6afa66fbe-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.347" />
       </set>
     </attachedChunks>
   </component>
@@ -49,7 +200,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721662579756</updated>
+      <workItem from="1732463930889" duration="391000" />
+      <workItem from="1732464340953" duration="659000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Hackathon_cubes1$Hackathon_cubes1.coverage" NAME="Hackathon-cubes1 Coverage Results" MODIFIED="1732464458356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

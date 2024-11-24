@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+
+</div>
+<form method="post">
+    <div class="contact-page-form contact-form form-style-one wow fadeInUp delay-0-2s" style="margin-top: 5vh">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <p style="color: #c9f31d">Решите систему уравнений</p>
+                    <table>
+                        {% for imgs in eq[0] %}
+                        {% set imgs = imgs.split() %}
+                        <tr style="font-size: x-large ">
+                            {% for img in imgs[:-2] %}
+                            <td><img style="object-fit: contain; width: min-content" src="/static/img/{{img}}"></td>
+                            <td>+</td>
+                            {% endfor %}
+                            <td><img style="object-fit: contain; width: min-content" src="/static/img/{{imgs[-2]}}"></td>
+                            <td> = </td>
+                            <td> {{imgs[-1]}} </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="ans" class="form-control" placeholder="Введите два числа через пробел"
+                           required data-error="Пожалуйста, введите ответ">
+                    <p>Введите два числа через пробел</p>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group mb-0">
+                <a href="/draft_lvl3/{{task}}" class="theme-btn"
+                   style="width: 80%; background-color: gray">Черновик <i class="far fa-angle-right"></i></a>
+            </div>
+
+            <div class="form-group mb-0" style="margin-top: 30%">
+                <button type="submit" class="theme-btn" value="{{eq[1]}}" name="result" style="width: 80%">Ответить <i
+                        class="far fa-angle-right"></i></button>
+                <div id="msgSubmit" class="hidden"></div>
+            </div>
+            <div class="form-group mb-0" style="margin-top: 30%">
+                <a href="/show_level3" class="theme-btn" style="width: 80%">Вернуться на карту <i class="far fa-angle-left"></i></a>
+        </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

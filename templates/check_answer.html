@@ -4,11 +4,20 @@
     {% if res %}
         <p style="color: #c9f31d">{{message}}</p>
         <img src="/static/img/Brain.png"><br><br>
-        <a href="/show_level{{ids[0]}}" type="submit" class="theme-btn">Идем дальше <i class="far fa-angle-right"></i></a>
+        {% if ids is integer %}
+            <a href="/show_level3" type="submit" class="theme-btn">Идем дальше <i class="far fa-angle-right"></i></a>
+        {% else %}
+            <a href="/show_level{{ids[0]}}" type="submit" class="theme-btn">Идем дальше <i class="far fa-angle-right"></i></a>
+        {% endif %}
     {% else %}
-        <p style="color: #c9f31d">Неудачка(</p>
+        <p style="color: #c9f31d">{{message}}</p>
         <img src="/static/img/Brain_bad.png"><br><br>
-        <a href="/solv/{{ids[0]}}{{ids[1]}}{{ids[2]}}" type="submit" class="theme-btn">Попробуй еще раз<i class="far fa-angle-right"></i></a><br><br>
-        <a href="/show_level{{ids[0]}}" type="submit" class="theme-btn">Вернуться на карту <i class="far fa-angle-right"></i></a>
+        {% if ids is integer %}
+            <a href="/solvlvl3/{{ids}}" type="submit" class="theme-btn">Попробуй еще раз<i class="far fa-angle-right"></i></a><br><br>
+            <a href="/show_level3" type="submit" class="theme-btn">Вернуться на карту <i class="far fa-angle-left"></i></a>
+        {% else %}
+            <a href="/solv/{{ids[0]}}{{ids[1]}}{{ids[2]}}" type="submit" class="theme-btn">Попробуй еще раз<i class="far fa-angle-right"></i></a><br><br>
+            <a href="/show_level{{ids[0]}}" type="submit" class="theme-btn">Вернуться на карту <i class="far fa-angle-left"></i></a>
+        {% endif %}
     {% endif %}
 {% endblock %}
